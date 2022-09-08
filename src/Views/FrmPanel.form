@@ -47,7 +47,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/img/estudiante.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Estudiantes"/>
+            <Property name="text" type="java.lang.String" value="Socios"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>
@@ -1609,8 +1609,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Estudiantes">
-                <Property name="tabTitle" type="java.lang.String" value="Estudiantes"/>
+              <JTabbedPaneConstraints tabName="Socios">
+                <Property name="tabTitle" type="java.lang.String" value="Socios"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -2083,7 +2083,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/buscar.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Estudiante"/>
+                    <Property name="text" type="java.lang.String" value="Socio"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel26">

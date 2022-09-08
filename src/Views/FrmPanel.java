@@ -1193,7 +1193,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jTabbedPane1.addTab("Estudiantes", jPanel11);
+        jTabbedPane1.addTab("Socios", jPanel11);
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1202,7 +1202,7 @@ public final class FrmPanel extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        jLabel25.setText("Estudiante");
+        jLabel25.setText("Socio");
 
         jLabel26.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
@@ -1528,7 +1528,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         MenuEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/estudiante.png"))); // NOI18N
-        MenuEst.setText("Estudiantes");
+        MenuEst.setText("Socios");
         MenuEst.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         MenuEst.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
