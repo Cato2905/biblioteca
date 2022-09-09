@@ -113,7 +113,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/img/materia.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Materia"/>
+            <Property name="text" type="java.lang.String" value="Tipo de documento"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>
@@ -217,7 +217,7 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="936" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="957" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -507,7 +507,7 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="915" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="935" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -540,7 +540,7 @@
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder justification="2" title="Nuevo Editorial">
+                    <TitledBorder justification="2" title="Nueva Editorial">
                       <Font PropertyName="font" name="Times New Roman" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
@@ -954,7 +954,7 @@
                           <Component id="jPanel8" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane4" pref="923" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" pref="935" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1379,8 +1379,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Materias">
-                <Property name="tabTitle" type="java.lang.String" value="Materias"/>
+              <JTabbedPaneConstraints tabName="Tipo de documento">
+                <Property name="tabTitle" type="java.lang.String" value="Tipo de documento"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -1399,7 +1399,7 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane6" pref="858" max="32767" attributes="0"/>
+                      <Component id="jScrollPane6" pref="867" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1432,7 +1432,7 @@
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder justification="2" title="Nuevo Materia">
+                    <TitledBorder justification="2" title="Nuevo Tipo de Documento">
                       <Font PropertyName="font" name="Times New Roman" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
@@ -1500,7 +1500,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Times New Roman" size="14" style="3"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Materia"/>
+                    <Property name="text" type="java.lang.String" value="Tipo de documento"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtIdMateria">
@@ -1558,7 +1558,7 @@
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Id" type="java.lang.Object"/>
-                        <Column editable="true" title="Materia" type="java.lang.Object"/>
+                        <Column editable="true" title="Tipo de documento" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1629,7 +1629,7 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="936" max="32767" attributes="0"/>
+                      <Component id="jScrollPane5" pref="951" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1665,7 +1665,7 @@
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder justification="2" title="Nuevo Estudiante">
+                    <TitledBorder justification="2" title="Nuevo Socio">
                       <Font PropertyName="font" name="Times New Roman" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
@@ -1952,17 +1952,17 @@
                               <Component id="txtBuscarPrestamo" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" pref="852" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane7" pref="894" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane7" min="-2" pref="568" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1973,7 +1973,7 @@
                               <Component id="jPanel16" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
