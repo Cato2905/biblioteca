@@ -8,7 +8,7 @@ public class Libros {
     private int editorial;
     private int materia;
     private int cantidad;
-    private int num_pag;
+    private String isbn;
     private int anio_edicion;
     private String autor_nombre;
     private String editorial_nombre;
@@ -17,14 +17,14 @@ public class Libros {
     public Libros() {
     }
 
-    public Libros(int id, String titulo, int autor, int editorial, int materia, int cantidad, int num_pag, int anio_edicion, String autor_nombre, String editorial_nombre, String materia_nombre) {
+    public Libros(int id, String titulo, int autor, int editorial, int materia, int cantidad, String isbn, int anio_edicion, String autor_nombre, String editorial_nombre, String materia_nombre) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.editorial = editorial;
         this.materia = materia;
         this.cantidad = cantidad;
-        this.num_pag = num_pag;
+        this.isbn = isbn;
         this.anio_edicion = anio_edicion;
         this.autor_nombre = autor_nombre;
         this.editorial_nombre = editorial_nombre;
@@ -79,12 +79,12 @@ public class Libros {
         this.cantidad = cantidad;
     }
 
-    public int getNum_pag() {
-        return num_pag;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setNum_pag(int num_pag) {
-        this.num_pag = num_pag;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public int getAnio_edicion() {

@@ -1034,7 +1034,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtNumLibro" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
+                                      <Component id="txtIsbn" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="txtAnioEdicion" alignment="0" max="32767" attributes="0"/>
@@ -1090,7 +1090,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtCantLibro" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="txtNumLibro" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="txtIsbn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1198,10 +1198,13 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Times New Roman" size="14" style="3"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Num Pag."/>
+                    <Property name="text" type="java.lang.String" value="ISBN"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtNumLibro">
+                <Component class="javax.swing.JTextField" name="txtIsbn">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIsbnActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
@@ -1276,14 +1279,14 @@
                         <Column editable="true" title="Id" type="java.lang.Object"/>
                         <Column editable="true" title="T&#xed;tulo" type="java.lang.Object"/>
                         <Column editable="true" title="Cantidad" type="java.lang.Object"/>
-                        <Column editable="true" title="Num P&#xe1;gina" type="java.lang.Object"/>
+                        <Column editable="true" title="ISBN" type="java.lang.Object"/>
                         <Column editable="true" title="A&#xf1;o Edici&#xf3;n" type="java.lang.Object"/>
                         <Column editable="true" title="" type="java.lang.Object"/>
                         <Column editable="true" title="Editorial" type="java.lang.Object"/>
                         <Column editable="true" title="" type="java.lang.Object"/>
                         <Column editable="true" title="Autor" type="java.lang.Object"/>
                         <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="Materia" type="java.lang.Object"/>
+                        <Column editable="true" title="Tipo documento" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

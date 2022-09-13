@@ -17,7 +17,7 @@ public class LibrosDao {
     ResultSet rs;
 
     public boolean registrar(Libros lb) {
-        String sql = "INSERT INTO libros (titulo, id_autor, id_editorial, id_materia, cantidad, num_pag, anio_edicion) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO libros (titulo, id_autor, id_editorial, id_materia, cantidad, isbn, anio_edicion) VALUES (?,?,?,?,?,?,?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -26,7 +26,7 @@ public class LibrosDao {
             ps.setInt(3, lb.getEditorial());
             ps.setInt(4, lb.getMateria());
             ps.setInt(5, lb.getCantidad());
-            ps.setInt(6, lb.getNum_pag());
+            ps.setString(6, lb.getIsbn());
             ps.setInt(7, lb.getAnio_edicion());
             ps.execute();
             return true;
@@ -38,7 +38,7 @@ public class LibrosDao {
 
     public boolean actualizar(Libros lb) {
         boolean res;
-        String sql = "UPDATE libros SET titulo=?, id_autor=?, id_editorial=?, id_materia=?, cantidad=?, num_pag=?, anio_edicion=? WHERE id = ?";
+        String sql = "UPDATE libros SET titulo=?, id_autor=?, id_editorial=?, id_materia=?, cantidad=?, isbn=?, anio_edicion=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class LibrosDao {
             ps.setInt(3, lb.getEditorial());
             ps.setInt(4, lb.getMateria());
             ps.setInt(5, lb.getCantidad());
-            ps.setInt(6, lb.getNum_pag());
+            ps.setString(6, lb.getIsbn());
             ps.setInt(7, lb.getAnio_edicion());
             ps.setInt(8, lb.getId());
             ps.execute();
@@ -79,7 +79,7 @@ public class LibrosDao {
                 lb.setEditorial(rs.getInt("id_editorial"));
                 lb.setMateria(rs.getInt("id_materia"));
                 lb.setCantidad(rs.getInt("cantidad"));
-                lb.setNum_pag(rs.getInt("num_pag"));
+                lb.setIsbn(rs.getString("isbn"));
                 lb.setAnio_edicion(rs.getInt("anio_edicion"));
                 lb.setAutor_nombre(rs.getString("autor"));
                 lb.setEditorial_nombre(rs.getString("editorial"));

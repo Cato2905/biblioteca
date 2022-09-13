@@ -145,7 +145,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         cbxMateria = new javax.swing.JComboBox<>();
         txtCantLibro = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        txtNumLibro = new javax.swing.JTextField();
+        txtIsbn = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txtAnioEdicion = new javax.swing.JTextField();
         btnRegLibro = new javax.swing.JButton();
@@ -704,7 +704,13 @@ public final class FrmPanel extends javax.swing.JFrame {
         });
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jLabel13.setText("Num Pag.");
+        jLabel13.setText("ISBN");
+
+        txtIsbn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIsbnActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel14.setText("Año Edicición");
@@ -767,7 +773,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNumLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtIsbn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtAnioEdicion, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -813,7 +819,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCantLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -831,7 +837,7 @@ public final class FrmPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Título", "Cantidad", "Num Página", "Año Edición", "", "Editorial", "", "Autor", "", "Materia"
+                "Id", "Título", "Cantidad", "ISBN", "Año Edición", "", "Editorial", "", "Autor", "", "Tipo documento"
             }
         ));
         tblLibros.setRowHeight(20);
@@ -1771,7 +1777,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdLibro.setText(tblLibros.getValueAt(fila, 0).toString());
         txtTitulo.setText(tblLibros.getValueAt(fila, 1).toString());
         txtCantLibro.setText(tblLibros.getValueAt(fila, 2).toString());
-        txtNumLibro.setText(tblLibros.getValueAt(fila, 3).toString());
+        txtIsbn.setText(tblLibros.getValueAt(fila, 3).toString());
         txtAnioEdicion.setText(tblLibros.getValueAt(fila, 4).toString());
         txtIdLEdi.setText(tblLibros.getValueAt(fila, 5).toString());
         cbxEditorial.setSelectedItem(tblLibros.getValueAt(fila, 6).toString());
@@ -2137,6 +2143,10 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbxMateriaItemStateChanged
 
+    private void txtIsbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIsbnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIsbnActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2304,10 +2314,10 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdMateria;
     private javax.swing.JTextField txtIdPrestamo;
     private javax.swing.JTextField txtIdUser;
+    private javax.swing.JTextField txtIsbn;
     private javax.swing.JTextField txtMateria;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreEmpresa;
-    private javax.swing.JTextField txtNumLibro;
     private javax.swing.JTextField txtRucEmpresa;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtTelefonoEmpresa;
@@ -2464,12 +2474,12 @@ public final class FrmPanel extends javax.swing.JFrame {
         String id = txtIdLibro.getText();
         String titulo = txtTitulo.getText();
         String cantidad = txtCantLibro.getText();
-        String num = txtNumLibro.getText();
+        String isbn = txtIsbn.getText();
         String anio = txtAnioEdicion.getText();
         String aut = txtIdLAutor.getText();
         String edit = txtIdLEdi.getText();
         String mat = txtIdLMat.getText();
-        if (titulo.equals("") || cantidad.equals("") || num.equals("") || anio.equals("") || aut.equals("") || edit.equals("") || mat.equals("")) {
+        if (titulo.equals("") || cantidad.equals("") || isbn.equals("") || anio.equals("") || aut.equals("") || edit.equals("") || mat.equals("")) {
             JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
         } else {
             libro.setTitulo(titulo);
@@ -2477,7 +2487,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             libro.setEditorial(Integer.parseInt(edit));
             libro.setMateria(Integer.parseInt(mat));
             libro.setCantidad(Integer.parseInt(cantidad));
-            libro.setNum_pag(Integer.parseInt(num));
+            libro.setIsbn(isbn);
             libro.setAnio_edicion(Integer.parseInt(anio));
             if (id.equals("")) {
                 if (libroDao.registrar(libro)) {
@@ -2598,7 +2608,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             ob[0] = Listar.get(i).getId();
             ob[1] = Listar.get(i).getTitulo();
             ob[2] = Listar.get(i).getCantidad();
-            ob[3] = Listar.get(i).getNum_pag();
+            ob[3] = Listar.get(i).getIsbn();
             ob[4] = Listar.get(i).getAnio_edicion();
             ob[5] = Listar.get(i).getEditorial();
             ob[6] = Listar.get(i).getEditorial_nombre();
@@ -2712,7 +2722,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdLibro.setText("");
         txtTitulo.setText("");
         txtCantLibro.setText("");
-        txtNumLibro.setText("");
+        txtIsbn.setText("");
         txtAnioEdicion.setText("");
     }
 
