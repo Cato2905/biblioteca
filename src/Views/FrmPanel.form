@@ -1211,7 +1211,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Times New Roman" size="14" style="3"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="A&#xf1;o Edicici&#xf3;n"/>
+                    <Property name="text" type="java.lang.String" value="Codigo de barras"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtAnioEdicion">
@@ -1280,7 +1280,7 @@
                         <Column editable="true" title="T&#xed;tulo" type="java.lang.Object"/>
                         <Column editable="true" title="Cantidad" type="java.lang.Object"/>
                         <Column editable="true" title="ISBN" type="java.lang.Object"/>
-                        <Column editable="true" title="A&#xf1;o Edici&#xf3;n" type="java.lang.Object"/>
+                        <Column editable="true" title="Codigo de barras" type="java.lang.Object"/>
                         <Column editable="true" title="" type="java.lang.Object"/>
                         <Column editable="true" title="Editorial" type="java.lang.Object"/>
                         <Column editable="true" title="" type="java.lang.Object"/>

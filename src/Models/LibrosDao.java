@@ -17,7 +17,7 @@ public class LibrosDao {
     ResultSet rs;
 
     public boolean registrar(Libros lb) {
-        String sql = "INSERT INTO libros (titulo, id_autor, id_editorial, id_materia, cantidad, isbn, anio_edicion) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO libros (titulo, id_autor, id_editorial, id_materia, cantidad, isbn, codigo) VALUES (?,?,?,?,?,?,?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -27,7 +27,7 @@ public class LibrosDao {
             ps.setInt(4, lb.getMateria());
             ps.setInt(5, lb.getCantidad());
             ps.setString(6, lb.getIsbn());
-            ps.setInt(7, lb.getAnio_edicion());
+            ps.setString(7, lb.getCodigo());
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -38,7 +38,7 @@ public class LibrosDao {
 
     public boolean actualizar(Libros lb) {
         boolean res;
-        String sql = "UPDATE libros SET titulo=?, id_autor=?, id_editorial=?, id_materia=?, cantidad=?, isbn=?, anio_edicion=? WHERE id = ?";
+        String sql = "UPDATE libros SET titulo=?, id_autor=?, id_editorial=?, id_materia=?, cantidad=?, isbn=?, codigo=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -48,7 +48,7 @@ public class LibrosDao {
             ps.setInt(4, lb.getMateria());
             ps.setInt(5, lb.getCantidad());
             ps.setString(6, lb.getIsbn());
-            ps.setInt(7, lb.getAnio_edicion());
+            ps.setString(7, lb.getCodigo());
             ps.setInt(8, lb.getId());
             ps.execute();
             res = true;
@@ -80,7 +80,7 @@ public class LibrosDao {
                 lb.setMateria(rs.getInt("id_materia"));
                 lb.setCantidad(rs.getInt("cantidad"));
                 lb.setIsbn(rs.getString("isbn"));
-                lb.setAnio_edicion(rs.getInt("anio_edicion"));
+                lb.setCodigo(rs.getString("codigo"));
                 lb.setAutor_nombre(rs.getString("autor"));
                 lb.setEditorial_nombre(rs.getString("editorial"));
                 lb.setMateria_nombre(rs.getString("materia"));
@@ -126,6 +126,7 @@ public class LibrosDao {
         }
         return lb;
     }
+
     public Combo getEditorial(String valor) {
         Combo lb = new Combo();
         String sql = "SELECT * FROM editorial WHERE editorial = ?";
@@ -141,6 +142,7 @@ public class LibrosDao {
         }
         return lb;
     }
+
     public Combo getMateria(String valor) {
         Combo lb = new Combo();
         String sql = "SELECT * FROM materias WHERE materia = ?";

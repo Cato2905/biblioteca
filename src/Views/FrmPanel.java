@@ -713,7 +713,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jLabel14.setText("Año Edicición");
+        jLabel14.setText("Codigo de barras");
 
         btnRegLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.png"))); // NOI18N
         btnRegLibro.setText("Registrar");
@@ -837,7 +837,7 @@ public final class FrmPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Título", "Cantidad", "ISBN", "Año Edición", "", "Editorial", "", "Autor", "", "Tipo documento"
+                "Id", "Título", "Cantidad", "ISBN", "Codigo de barras", "", "Editorial", "", "Autor", "", "Tipo documento"
             }
         ));
         tblLibros.setRowHeight(20);
@@ -2475,11 +2475,11 @@ public final class FrmPanel extends javax.swing.JFrame {
         String titulo = txtTitulo.getText();
         String cantidad = txtCantLibro.getText();
         String isbn = txtIsbn.getText();
-        String anio = txtAnioEdicion.getText();
+        String codigo_bar = txtAnioEdicion.getText();
         String aut = txtIdLAutor.getText();
         String edit = txtIdLEdi.getText();
         String mat = txtIdLMat.getText();
-        if (titulo.equals("") || cantidad.equals("") || isbn.equals("") || anio.equals("") || aut.equals("") || edit.equals("") || mat.equals("")) {
+        if (titulo.equals("") || cantidad.equals("") || isbn.equals("") || codigo_bar.equals("") || aut.equals("") || edit.equals("") || mat.equals("")) {
             JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
         } else {
             libro.setTitulo(titulo);
@@ -2488,7 +2488,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             libro.setMateria(Integer.parseInt(mat));
             libro.setCantidad(Integer.parseInt(cantidad));
             libro.setIsbn(isbn);
-            libro.setAnio_edicion(Integer.parseInt(anio));
+            libro.setCodigo(codigo_bar);
             if (id.equals("")) {
                 if (libroDao.registrar(libro)) {
                     JOptionPane.showMessageDialog(null, "Libro Registrado");
@@ -2609,7 +2609,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             ob[1] = Listar.get(i).getTitulo();
             ob[2] = Listar.get(i).getCantidad();
             ob[3] = Listar.get(i).getIsbn();
-            ob[4] = Listar.get(i).getAnio_edicion();
+            ob[4] = Listar.get(i).getCodigo();
             ob[5] = Listar.get(i).getEditorial();
             ob[6] = Listar.get(i).getEditorial_nombre();
             ob[7] = Listar.get(i).getAutor();
