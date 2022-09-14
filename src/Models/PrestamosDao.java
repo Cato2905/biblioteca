@@ -1,4 +1,3 @@
-
 package Models;
 
 import Util.Conexion;
@@ -11,6 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class PrestamosDao {
+
     Connection con;
     Conexion cn = new Conexion();
     PreparedStatement ps;
@@ -72,7 +72,11 @@ public class PrestamosDao {
                 pre.setFecha_prestamo(rs.getString("fecha_prestamo"));
                 pre.setFecha_dev(rs.getString("fecha_devolucion"));
                 pre.setEstado(rs.getInt("estado"));
-                lista.add(pre);
+                int ver = pre.getEstado();
+                if (ver == 1) {
+                    lista.add(pre);
+                }
+
             }
         } catch (SQLException e) {
             System.out.println(e.toString());

@@ -174,7 +174,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         txtDocumento = new javax.swing.JTextField();
-        txtCodigo = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtEstudiante = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -1094,7 +1094,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                                 .addComponent(btnRegEst)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnEliEst))
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1119,7 +1119,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1731,7 +1731,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegMateriaActionPerformed
 
     private void btnRegEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegEstActionPerformed
-        registrarEstudiante();
+        registrarSocio();
         LimpiarTable();
         ListarEstudiantes();
         limpiarEstudiantes();
@@ -1758,7 +1758,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         int fila = tblEstudientes.rowAtPoint(evt.getPoint());
         txtIdEst.setText(tblEstudientes.getValueAt(fila, 0).toString());
         txtDocumento.setText(tblEstudientes.getValueAt(fila, 1).toString());
-        txtCodigo.setText(tblEstudientes.getValueAt(fila, 2).toString());
+        txtEmail.setText(tblEstudientes.getValueAt(fila, 2).toString());
         txtEstudiante.setText(tblEstudientes.getValueAt(fila, 3).toString());
         txtTelefono.setText(tblEstudientes.getValueAt(fila, 4).toString());
         txtCarrera.setText(tblEstudientes.getValueAt(fila, 5).toString());
@@ -2294,13 +2294,13 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtCantPrestamo;
     private javax.swing.JTextField txtCarrera;
     private javax.swing.JPasswordField txtClave;
-    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtCorreoEmpresa;
     private javax.swing.JTextField txtDireccionEmpresa;
     private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtEditorial;
     private javax.swing.JButton txtEliAutor;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEstudiante;
     private com.toedter.calendar.JDateChooser txtFechaDev;
     private javax.swing.JTextField txtIdAutor;
@@ -2324,6 +2324,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+    
     private void registrarUsuario() {
         String id = txtIdUser.getText();
         String usuario = txtUsuario.getText();
@@ -2436,32 +2437,32 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }
 
-    private void registrarEstudiante() {
+    private void registrarSocio() {
         String id = txtIdEst.getText();
         String doc = txtDocumento.getText();
-        String cod = txtCodigo.getText();
+        String email = txtEmail.getText();
         String nombre = txtEstudiante.getText();
         String telefono = txtTelefono.getText();
         String carrera = txtCarrera.getText();
-        if (doc.equals("") || cod.equals("") || nombre.equals("") || telefono.equals("") || carrera.equals("")) {
+        if (doc.equals("") || email.equals("") || nombre.equals("") || telefono.equals("") || carrera.equals("")) {
             JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
         } else {
             estudiante.setRut(doc);
-            estudiante.setEmail(cod);
+            estudiante.setEmail(email);
             estudiante.setNombre(nombre);
             estudiante.setTelefono(telefono);
             estudiante.setDireccion(carrera);
 
             if (id.equals("")) {
                 if (estudianteDao.registrar(estudiante)) {
-                    JOptionPane.showMessageDialog(null, "Estudiante Registrado");
+                    JOptionPane.showMessageDialog(null, "Socio Registrado");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Registrar");
                 }
             } else {
                 estudiante.setId(Integer.parseInt(id));
                 if (estudianteDao.actualizar(estudiante)) {
-                    JOptionPane.showMessageDialog(null, "Estudiante Modificado");
+                    JOptionPane.showMessageDialog(null, "Socio Modificado");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Modificar");
                 }
@@ -2713,7 +2714,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdEst.setText("");
         txtEstudiante.setText("");
         txtDocumento.setText("");
-        txtCodigo.setText("");
+        txtEmail.setText("");
         txtTelefono.setText("");
         txtCarrera.setText("");
     }

@@ -99,5 +99,6 @@ public class Prestamos {
         this.estado = estado;
     }
 
+
     
 }

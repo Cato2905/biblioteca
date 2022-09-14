@@ -1695,7 +1695,7 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="btnEliEst" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="txtCodigo" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                                      <Component id="txtEmail" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
@@ -1727,7 +1727,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtCodigo" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="txtEmail" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1755,7 +1755,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextField" name="txtDocumento">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCodigo">
+                <Component class="javax.swing.JTextField" name="txtEmail">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEstudiante">
                 </Component>
