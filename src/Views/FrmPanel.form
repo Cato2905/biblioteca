@@ -1681,7 +1681,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtDocumento" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtRut" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="txtEstudiante" min="-2" pref="246" max="-2" attributes="0"/>
@@ -1723,7 +1723,7 @@
                               <Component id="txtIdEst" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtDocumento" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="txtRut" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1753,7 +1753,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="txtDocumento">
+                <Component class="javax.swing.JTextField" name="txtRut">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEmail">
                 </Component>

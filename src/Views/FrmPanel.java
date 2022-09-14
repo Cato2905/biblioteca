@@ -6,8 +6,8 @@ import Models.Combo;
 import Models.Editorial;
 import Models.EditorialDao;
 import Models.Empresa;
-import Models.Estudiantes;
-import Models.EstudiantesDao;
+import Models.Socios;
+import Models.SociosDao;
 import Models.Libros;
 import Models.LibrosDao;
 import Models.Materias;
@@ -41,8 +41,8 @@ public final class FrmPanel extends javax.swing.JFrame {
     AutorDao autorDao = new AutorDao();
     Materias materia = new Materias();
     MateriasDao materiaDao = new MateriasDao();
-    Estudiantes estudiante = new Estudiantes();
-    EstudiantesDao estudianteDao = new EstudiantesDao();
+    Socios socios = new Socios();
+    SociosDao sociosDao = new SociosDao();
     Libros libro = new Libros();
     LibrosDao libroDao = new LibrosDao();
     Prestamos prestamo = new Prestamos();
@@ -173,7 +173,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtBuscarMateria = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        txtDocumento = new javax.swing.JTextField();
+        txtRut = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtEstudiante = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -1082,7 +1082,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDocumento)
+                    .addComponent(txtRut)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(txtEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1115,7 +1115,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addComponent(txtIdEst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1757,7 +1757,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     private void tblEstudientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEstudientesMouseClicked
         int fila = tblEstudientes.rowAtPoint(evt.getPoint());
         txtIdEst.setText(tblEstudientes.getValueAt(fila, 0).toString());
-        txtDocumento.setText(tblEstudientes.getValueAt(fila, 1).toString());
+        txtRut.setText(tblEstudientes.getValueAt(fila, 1).toString());
         txtEmail.setText(tblEstudientes.getValueAt(fila, 2).toString());
         txtEstudiante.setText(tblEstudientes.getValueAt(fila, 3).toString());
         txtTelefono.setText(tblEstudientes.getValueAt(fila, 4).toString());
@@ -1856,7 +1856,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         } else {
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro eliminar: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (pregunta == 0) {
-                if (estudianteDao.eliminar(Integer.parseInt(txtIdEst.getText()))) {
+                if (sociosDao.eliminar(Integer.parseInt(txtIdEst.getText()))) {
                     LimpiarTable();
                     limpiarEstudiantes();
                     ListarEstudiantes();
@@ -2297,7 +2297,6 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtCorreoEmpresa;
     private javax.swing.JTextField txtDireccionEmpresa;
-    private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtEditorial;
     private javax.swing.JButton txtEliAutor;
     private javax.swing.JTextField txtEmail;
@@ -2319,12 +2318,13 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreEmpresa;
     private javax.swing.JTextField txtRucEmpresa;
+    private javax.swing.JTextField txtRut;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtTelefonoEmpresa;
     private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-    
+
     private void registrarUsuario() {
         String id = txtIdUser.getText();
         String usuario = txtUsuario.getText();
@@ -2341,7 +2341,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                 user.setClave(clave);
                 if (clave.equals("")) {
                     JOptionPane.showMessageDialog(null, "La Contraseña es requerido");
-                }else{
+                } else {
                     if (usuarioDao.registrar(user)) {
                         JOptionPane.showMessageDialog(null, "Usuario Registrado");
                     } else {
@@ -2439,29 +2439,36 @@ public final class FrmPanel extends javax.swing.JFrame {
 
     private void registrarSocio() {
         String id = txtIdEst.getText();
-        String doc = txtDocumento.getText();
+        String rut = txtRut.getText();
         String email = txtEmail.getText();
         String nombre = txtEstudiante.getText();
         String telefono = txtTelefono.getText();
         String carrera = txtCarrera.getText();
-        if (doc.equals("") || email.equals("") || nombre.equals("") || telefono.equals("") || carrera.equals("")) {
+        if (rut.equals("") || email.equals("") || nombre.equals("") || telefono.equals("") || carrera.equals("")) {
             JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
+
         } else {
-            estudiante.setRut(doc);
-            estudiante.setEmail(email);
-            estudiante.setNombre(nombre);
-            estudiante.setTelefono(telefono);
-            estudiante.setDireccion(carrera);
+            if (SociosDao.validarRut(rut)) {
+
+            } else {
+                JOptionPane.showMessageDialog(null, " Rut mal ingresado");
+                return;
+            }
+            socios.setRut(rut);
+            socios.setEmail(email);
+            socios.setNombre(nombre);
+            socios.setTelefono(telefono);
+            socios.setDireccion(carrera);
 
             if (id.equals("")) {
-                if (estudianteDao.registrar(estudiante)) {
+                if (sociosDao.registrar(socios)) {
                     JOptionPane.showMessageDialog(null, "Socio Registrado");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Registrar");
                 }
             } else {
-                estudiante.setId(Integer.parseInt(id));
-                if (estudianteDao.actualizar(estudiante)) {
+                socios.setId(Integer.parseInt(id));
+                if (sociosDao.actualizar(socios)) {
                     JOptionPane.showMessageDialog(null, "Socio Modificado");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Modificar");
@@ -2530,7 +2537,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     }
 
     private void llenarEstudiante() {
-        List<Estudiantes> lista = estudianteDao.Listar("");
+        List<Socios> lista = sociosDao.Listar("");
         for (int i = 0; i < lista.size(); i++) {
             int id = lista.get(i).getId();
             String nombre = lista.get(i).getNombre();
@@ -2624,7 +2631,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     }
 
     private void ListarEstudiantes() {
-        List<Estudiantes> Listar = estudianteDao.Listar(txtBuscarEst.getText());
+        List<Socios> Listar = sociosDao.Listar(txtBuscarEst.getText());
         modelo = (DefaultTableModel) tblEstudientes.getModel();
         Object[] ob = new Object[6];
         for (int i = 0; i < Listar.size(); i++) {
@@ -2713,7 +2720,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     private void limpiarEstudiantes() {
         txtIdEst.setText("");
         txtEstudiante.setText("");
-        txtDocumento.setText("");
+        txtRut.setText("");
         txtEmail.setText("");
         txtTelefono.setText("");
         txtCarrera.setText("");

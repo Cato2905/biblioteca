@@ -1,7 +1,7 @@
 
 package Models;
 
-public class Estudiantes {
+public class Socios {
     private int id;
     private String rut;
     private String email;
@@ -9,10 +9,10 @@ public class Estudiantes {
     private String telefono;
     private String direccion;
 
-    public Estudiantes() {
+    public Socios() {
     }
 
-    public Estudiantes(int id, String rut, String email, String nombre, String telefono, String direccion) {
+    public Socios(int id, String rut, String email, String nombre, String telefono, String direccion) {
         this.id = id;
         this.rut = rut;
         this.email = email;

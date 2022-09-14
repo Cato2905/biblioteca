@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class EstudiantesDao {
+public class SociosDao {
     Connection con;
     Conexion cn = new Conexion();
     PreparedStatement ps;
     ResultSet rs;
-    public boolean registrar(Estudiantes est) {
+    public boolean registrar(Socios est) {
         String sql = "INSERT INTO estudiantes (rut, email, nombre, telefono, direccion) VALUES (?,?,?,?,?)";
         con = cn.getConnection();
         try {
@@ -33,7 +33,7 @@ public class EstudiantesDao {
         }
     }
 
-    public boolean actualizar(Estudiantes est) {
+    public boolean actualizar(Socios est) {
         boolean res;
         String sql = "UPDATE estudiantes SET rut=?, email=?, nombre=?, telefono=?, direccion=? WHERE id = ?";
         con = cn.getConnection();
@@ -55,7 +55,7 @@ public class EstudiantesDao {
     }
 
     public List Listar(String valor) {
-        List<Estudiantes> lista = new ArrayList();
+        List<Socios> lista = new ArrayList();
         try {
             con = cn.getConnection();
             if ("".equalsIgnoreCase(valor)) {
@@ -67,7 +67,7 @@ public class EstudiantesDao {
             }
             rs = ps.executeQuery();
             while (rs.next()) {
-                Estudiantes est = new Estudiantes();
+                Socios est = new Socios();
                 est.setId(rs.getInt("id"));
                 est.setRut(rs.getString("rut"));
                 est.setEmail(rs.getString("email"));
@@ -101,4 +101,30 @@ public class EstudiantesDao {
             }
         }
     }
+    
+    public static boolean validarRut(String rut) {
+
+    boolean validacion = false;
+    try {
+        rut =  rut.toUpperCase();
+        rut = rut.replace(".", "");
+        rut = rut.replace("-", "");
+        int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+
+        char dv = rut.charAt(rut.length() - 1);
+
+        int m = 0, s = 1;
+        for (; rutAux != 0; rutAux /= 10) {
+            s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+        }
+        if (dv == (char) (s != 0 ? s + 47 : 75)) {
+            validacion = true;
+        }
+
+    } catch (java.lang.NumberFormatException e) {
+    } catch (Exception e) {
+    }
+    return validacion;
+}
+
 }
