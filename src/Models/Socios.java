@@ -1,24 +1,26 @@
-
 package Models;
 
 public class Socios {
+
     private int id;
     private String rut;
     private String email;
     private String nombre;
     private String telefono;
     private String direccion;
+    private String contrasena;
 
     public Socios() {
     }
 
-    public Socios(int id, String rut, String email, String nombre, String telefono, String direccion) {
+    public Socios(int id, String rut, String email, String nombre, String telefono, String direccion, String contrasena) {
         this.id = id;
         this.rut = rut;
         this.email = email;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.contrasena = contrasena;
     }
 
     public int getId() {
@@ -68,5 +70,12 @@ public class Socios {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 }

@@ -28,6 +28,7 @@ public class LibrosDao {
             ps.setInt(5, lb.getCantidad());
             ps.setString(6, lb.getIsbn());
             ps.setString(7, lb.getCodigo());
+            
             ps.execute();
             return true;
         } catch (SQLException ex) {

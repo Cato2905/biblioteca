@@ -13,11 +13,12 @@ public class Libros {
     private String autor_nombre;
     private String editorial_nombre;
     private String materia_nombre;
+    private String resumen;
 
     public Libros() {
     }
 
-    public Libros(int id, String titulo, int autor, int editorial, int materia, int cantidad, String isbn, String codigo, String autor_nombre, String editorial_nombre, String materia_nombre) {
+    public Libros(int id, String titulo, int autor, int editorial, int materia, int cantidad, String isbn, String codigo, String autor_nombre, String editorial_nombre, String materia_nombre, String resumen) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -29,6 +30,7 @@ public class Libros {
         this.autor_nombre = autor_nombre;
         this.editorial_nombre = editorial_nombre;
         this.materia_nombre = materia_nombre;
+        this.resumen = resumen;
     }
 
     public int getId() {
@@ -117,6 +119,14 @@ public class Libros {
 
     public void setMateria_nombre(String materia_nombre) {
         this.materia_nombre = materia_nombre;
+    }
+
+    public String getResumen() {
+        return resumen;
+    }
+
+    public void setResumen(String resumen) {
+        this.resumen = resumen;
     }
 
     
