@@ -3,7 +3,7 @@ package Models;
 
 public class Prestamos {
     private int id;
-    private int estudiante;
+    private int socio;
     private String nombre_est;
     private int libro;
     private String titulo;
@@ -15,9 +15,9 @@ public class Prestamos {
     public Prestamos() {
     }
 
-    public Prestamos(int id, int estudiante, String nombre_est, int libro, String titulo, int cantidad, String fecha_prestamo, String fecha_dev, int estado) {
+    public Prestamos(int id, int socio, String nombre_est, int libro, String titulo, int cantidad, String fecha_prestamo, String fecha_dev, int estado) {
         this.id = id;
-        this.estudiante = estudiante;
+        this.socio = socio;
         this.nombre_est = nombre_est;
         this.libro = libro;
         this.titulo = titulo;
@@ -35,12 +35,12 @@ public class Prestamos {
         this.id = id;
     }
 
-    public int getEstudiante() {
-        return estudiante;
+    public int getSocio() {
+        return socio;
     }
 
-    public void setEstudiante(int estudiante) {
-        this.estudiante = estudiante;
+    public void setSocio(int socio) {
+        this.socio = socio;
     }
 
     public String getNombre_est() {

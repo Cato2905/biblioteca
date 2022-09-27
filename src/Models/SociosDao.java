@@ -16,7 +16,7 @@ public class SociosDao {
     PreparedStatement ps;
     ResultSet rs;
     public boolean registrar(Socios est) {
-        String sql = "INSERT INTO estudiantes (rut, email, nombre, telefono, direccion) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO socios (rut, email, nombre, telefono, direccion) VALUES (?,?,?,?,?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -35,7 +35,7 @@ public class SociosDao {
 
     public boolean actualizar(Socios est) {
         boolean res;
-        String sql = "UPDATE estudiantes SET rut=?, email=?, nombre=?, telefono=?, direccion=? WHERE id = ?";
+        String sql = "UPDATE socios SET rut=?, email=?, nombre=?, telefono=?, direccion=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -59,10 +59,10 @@ public class SociosDao {
         try {
             con = cn.getConnection();
             if ("".equalsIgnoreCase(valor)) {
-                String sql = "SELECT * FROM estudiantes ORDER BY id DESC";
+                String sql = "SELECT * FROM socios ORDER BY id DESC";
                 ps = con.prepareStatement(sql);
             } else {
-                String sql = "SELECT * FROM estudiantes WHERE nombre LIKE '%" + valor + "%'";
+                String sql = "SELECT * FROM socios WHERE nombre LIKE '%" + valor + "%'";
                 ps = con.prepareStatement(sql);
             }
             rs = ps.executeQuery();
@@ -84,7 +84,7 @@ public class SociosDao {
 
     public boolean eliminar(int id) {
 
-        String sql = "DELETE FROM estudiantes WHERE id = ?";
+        String sql = "DELETE FROM socios WHERE id = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);

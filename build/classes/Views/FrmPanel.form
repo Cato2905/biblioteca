@@ -1030,7 +1030,7 @@
                                       <Component id="txtIsbn" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="txtAnioEdicion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtCodBarra" alignment="0" max="32767" attributes="0"/>
                               <Component id="cbxAutor" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnRegLibro" min="-2" max="-2" attributes="0"/>
@@ -1095,7 +1095,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtAnioEdicion" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="txtCodBarra" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnResumen" min="-2" pref="46" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -1215,7 +1215,7 @@
                     <Property name="text" type="java.lang.String" value="Codigo de barras"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtAnioEdicion">
+                <Component class="javax.swing.JTextField" name="txtCodBarra">
                 </Component>
                 <Component class="javax.swing.JButton" name="btnRegLibro">
                   <Properties>
@@ -1882,7 +1882,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblEstudientes">
+                <Component class="javax.swing.JTable" name="tblSocios">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="6" rowCount="0">
@@ -1934,7 +1934,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblEstudientesMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblSociosMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
