@@ -6,30 +6,30 @@ public class Libros {
     private String titulo;
     private int autor;
     private int editorial;
-    private int materia;
+    private int documento;
     private int cantidad;
     private String isbn;
     private String codigo;
     private String autor_nombre;
     private String editorial_nombre;
-    private String materia_nombre;
+    private String documento_nombre;
     private String resumen;
 
     public Libros() {
     }
 
-    public Libros(int id, String titulo, int autor, int editorial, int materia, int cantidad, String isbn, String codigo, String autor_nombre, String editorial_nombre, String materia_nombre, String resumen) {
+    public Libros(int id, String titulo, int autor, int editorial, int documento, int cantidad, String isbn, String codigo, String autor_nombre, String editorial_nombre, String documento_nombre, String resumen) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.editorial = editorial;
-        this.materia = materia;
+        this.documento = documento;
         this.cantidad = cantidad;
         this.isbn = isbn;
         this.codigo = codigo;
         this.autor_nombre = autor_nombre;
         this.editorial_nombre = editorial_nombre;
-        this.materia_nombre = materia_nombre;
+        this.documento_nombre = documento_nombre;
         this.resumen = resumen;
     }
 
@@ -65,12 +65,12 @@ public class Libros {
         this.editorial = editorial;
     }
 
-    public int getMateria() {
-        return materia;
+    public int getDocumento() {
+        return documento;
     }
 
-    public void setMateria(int materia) {
-        this.materia = materia;
+    public void setDocumento(int documento) {
+        this.documento = documento;
     }
 
     public int getCantidad() {
@@ -113,12 +113,12 @@ public class Libros {
         this.editorial_nombre = editorial_nombre;
     }
 
-    public String getMateria_nombre() {
-        return materia_nombre;
+    public String getDocumento_nombre() {
+        return documento_nombre;
     }
 
-    public void setMateria_nombre(String materia_nombre) {
-        this.materia_nombre = materia_nombre;
+    public void setDocumento_nombre(String documento_nombre) {
+        this.documento_nombre = documento_nombre;
     }
 
     public String getResumen() {

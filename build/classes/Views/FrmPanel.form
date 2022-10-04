@@ -108,7 +108,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="MenuMateria">
+        <Menu class="javax.swing.JMenu" name="MenuDocumento">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/img/materia.png"/>
@@ -119,7 +119,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MenuMateriaMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MenuDocumentoMouseClicked"/>
           </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="MenuPrestamo">
@@ -1018,7 +1018,7 @@
                                   <Component id="txtIdLibro" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="cbxEditorial" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cbxMateria" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbxDocumento" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
@@ -1079,7 +1079,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="cbxMateria" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="cbxDocumento" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1179,15 +1179,15 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cbxMateria">
+                <Component class="javax.swing.JComboBox" name="cbxDocumento">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbxMateriaItemStateChanged"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxMateriaActionPerformed"/>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbxDocumentoItemStateChanged"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxDocumentoActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
@@ -1408,7 +1408,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="txtBuscarMateria" min="-2" pref="243" max="-2" attributes="0"/>
+                              <Component id="txtBuscarDocumento" min="-2" pref="243" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1425,7 +1425,7 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel32" max="32767" attributes="0"/>
-                                  <Component id="txtBuscarMateria" pref="35" max="32767" attributes="0"/>
+                                  <Component id="txtBuscarDocumento" pref="35" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
@@ -1460,7 +1460,7 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnNuevoMateria" min="-2" pref="276" max="-2" attributes="0"/>
+                                  <Component id="btnNuevoDocumento" min="-2" pref="276" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -1468,14 +1468,14 @@
                                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="btnRegMateria" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnRegDocumento" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="btnEliMateria" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnEliDocumento" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="txtMateria" min="-2" pref="274" max="-2" attributes="0"/>
+                                          <Component id="txtDocumento" min="-2" pref="274" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                                              <Component id="txtIdMateria" min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="txtIdDocumento" min="-2" pref="27" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1491,23 +1491,23 @@
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtMateria" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="txtDocumento" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnRegMateria" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="btnEliMateria" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="btnRegDocumento" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="btnEliDocumento" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnNuevoMateria" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnNuevoDocumento" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                          <Component id="txtIdMateria" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtIdDocumento" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="162" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="txtMateria">
+                <Component class="javax.swing.JTextField" name="txtDocumento">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel15">
                   <Properties>
@@ -1517,9 +1517,9 @@
                     <Property name="text" type="java.lang.String" value="Tipo de documento"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtIdMateria">
+                <Component class="javax.swing.JTextField" name="txtIdDocumento">
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRegMateria">
+                <Component class="javax.swing.JButton" name="btnRegDocumento">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/save.png"/>
@@ -1527,10 +1527,10 @@
                     <Property name="text" type="java.lang.String" value="Registrar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegMateriaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegDocumentoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnEliMateria">
+                <Component class="javax.swing.JButton" name="btnEliDocumento">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/eliminar.png"/>
@@ -1541,10 +1541,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliMateriaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliDocumentoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnNuevoMateria">
+                <Component class="javax.swing.JButton" name="btnNuevoDocumento">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/nuevo.png"/>
@@ -1555,7 +1555,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoMateriaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoDocumentoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -1567,7 +1567,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblMateria">
+                <Component class="javax.swing.JTable" name="tblDocumento">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="2" rowCount="0">
@@ -1595,7 +1595,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblMateriaMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblDocumentoMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -1608,9 +1608,9 @@
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtBuscarMateria">
+            <Component class="javax.swing.JTextField" name="txtBuscarDocumento">
               <Events>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarMateriaKeyReleased"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarDocumentoKeyReleased"/>
               </Events>
             </Component>
           </SubComponents>

@@ -10,17 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class MateriasDao {
+public class DocumentosDao {
     Connection con;
     Conexion cn = new Conexion();
     PreparedStatement ps;
     ResultSet rs;
-    public boolean registrar(Materias mt) {
-        String sql = "INSERT INTO materias (materia) VALUES (?)";
+    public boolean registrar(Documentos mt) {
+        String sql = "INSERT INTO documentos (documento) VALUES (?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, mt.getMateria());
+            ps.setString(1, mt.getDocumento());
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -29,13 +29,13 @@ public class MateriasDao {
         }
     }
 
-    public boolean actualizar(Materias mt) {
+    public boolean actualizar(Documentos mt) {
         boolean res;
-        String sql = "UPDATE materias SET materia=? WHERE id = ?";
+        String sql = "UPDATE documentos SET documento=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, mt.getMateria());
+            ps.setString(1, mt.getDocumento());
             ps.setInt(2, mt.getId());
             ps.execute();
             res = true;
@@ -47,21 +47,21 @@ public class MateriasDao {
     }
 
     public List Listar(String valor) {
-        List<Materias> lista = new ArrayList();
+        List<Documentos> lista = new ArrayList();
         try {
             con = cn.getConnection();
             if ("".equalsIgnoreCase(valor)) {
-                String sql = "SELECT * FROM materias ORDER BY id DESC";
+                String sql = "SELECT * FROM documentos ORDER BY id DESC";
                 ps = con.prepareStatement(sql);
             } else {
-                String sql = "SELECT * FROM materias WHERE materia LIKE '%" + valor + "%'";
+                String sql = "SELECT * FROM documentos WHERE documento LIKE '%" + valor + "%'";
                 ps = con.prepareStatement(sql);
             }
             rs = ps.executeQuery();
             while (rs.next()) {
-                Materias mt = new Materias();
+                Documentos mt = new Documentos();
                 mt.setId(rs.getInt("id"));
-                mt.setMateria(rs.getString("materia"));
+                mt.setDocumento(rs.getString("documento"));
                 lista.add(mt);
             }
         } catch (SQLException e) {
@@ -72,7 +72,7 @@ public class MateriasDao {
 
     public boolean eliminar(int id) {
 
-        String sql = "DELETE FROM materias WHERE id = ?";
+        String sql = "DELETE FROM documentos WHERE id = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);

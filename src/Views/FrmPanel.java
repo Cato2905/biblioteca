@@ -10,8 +10,8 @@ import Models.Socios;
 import Models.SociosDao;
 import Models.Libros;
 import Models.LibrosDao;
-import Models.Materias;
-import Models.MateriasDao;
+import Models.Documentos;
+import Models.DocumentosDao;
 import Models.Prestamos;
 import Models.PrestamosDao;
 import Models.Usuarios;
@@ -40,8 +40,8 @@ public final class FrmPanel extends javax.swing.JFrame {
     EditorialDao editorialDao = new EditorialDao();
     Autor autor = new Autor();
     AutorDao autorDao = new AutorDao();
-    Materias materia = new Materias();
-    MateriasDao materiaDao = new MateriasDao();
+    Documentos documento = new Documentos();
+    DocumentosDao documentosDao = new DocumentosDao();
     Socios socios = new Socios();
     SociosDao sociosDao = new SociosDao();
     Libros libro = new Libros();
@@ -69,7 +69,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdEmpresa.setVisible(false);
         txtIdEst.setVisible(false);
         txtIdLibro.setVisible(false);
-        txtIdMateria.setVisible(false);
+        txtIdDocumento.setVisible(false);
         txtIdUser.setVisible(false);
         txtIdPrestamo.setVisible(false);
         txtIdLAutor.setVisible(false);
@@ -145,7 +145,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         cbxAutor = new javax.swing.JComboBox<>();
         cbxEditorial = new javax.swing.JComboBox<>();
-        cbxMateria = new javax.swing.JComboBox<>();
+        cbxDocumento = new javax.swing.JComboBox<>();
         txtCantLibro = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtIsbn = new javax.swing.JTextField();
@@ -165,16 +165,16 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtBuscarLibro = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        txtMateria = new javax.swing.JTextField();
+        txtDocumento = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        txtIdMateria = new javax.swing.JTextField();
-        btnRegMateria = new javax.swing.JButton();
-        btnEliMateria = new javax.swing.JButton();
-        btnNuevoMateria = new javax.swing.JButton();
+        txtIdDocumento = new javax.swing.JTextField();
+        btnRegDocumento = new javax.swing.JButton();
+        btnEliDocumento = new javax.swing.JButton();
+        btnNuevoDocumento = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        tblMateria = new javax.swing.JTable();
+        tblDocumento = new javax.swing.JTable();
         jLabel32 = new javax.swing.JLabel();
-        txtBuscarMateria = new javax.swing.JTextField();
+        txtBuscarDocumento = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         txtRut = new javax.swing.JTextField();
@@ -244,7 +244,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         MenuEditorial = new javax.swing.JMenuItem();
         MenuAutor = new javax.swing.JMenuItem();
         MenuLibro = new javax.swing.JMenuItem();
-        MenuMateria = new javax.swing.JMenu();
+        MenuDocumento = new javax.swing.JMenu();
         MenuPrestamo = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -708,14 +708,14 @@ public final class FrmPanel extends javax.swing.JFrame {
             }
         });
 
-        cbxMateria.addItemListener(new java.awt.event.ItemListener() {
+        cbxDocumento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxMateriaItemStateChanged(evt);
+                cbxDocumentoItemStateChanged(evt);
             }
         });
-        cbxMateria.addActionListener(new java.awt.event.ActionListener() {
+        cbxDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxMateriaActionPerformed(evt);
+                cbxDocumentoActionPerformed(evt);
             }
         });
 
@@ -785,7 +785,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cbxEditorial, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxMateria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxDocumento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -834,7 +834,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addGap(1, 1, 1)
-                .addComponent(cbxMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
@@ -925,29 +925,29 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel15.setText("Tipo de documento");
 
-        btnRegMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.png"))); // NOI18N
-        btnRegMateria.setText("Registrar");
-        btnRegMateria.addActionListener(new java.awt.event.ActionListener() {
+        btnRegDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.png"))); // NOI18N
+        btnRegDocumento.setText("Registrar");
+        btnRegDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegMateriaActionPerformed(evt);
+                btnRegDocumentoActionPerformed(evt);
             }
         });
 
-        btnEliMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
-        btnEliMateria.setText("Eliminar");
-        btnEliMateria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnEliMateria.addActionListener(new java.awt.event.ActionListener() {
+        btnEliDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
+        btnEliDocumento.setText("Eliminar");
+        btnEliDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEliDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliMateriaActionPerformed(evt);
+                btnEliDocumentoActionPerformed(evt);
             }
         });
 
-        btnNuevoMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
-        btnNuevoMateria.setText("Nuevo");
-        btnNuevoMateria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnNuevoMateria.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevoDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
+        btnNuevoDocumento.setText("Nuevo");
+        btnNuevoDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnNuevoDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoMateriaActionPerformed(evt);
+                btnNuevoDocumentoActionPerformed(evt);
             }
         });
 
@@ -959,20 +959,20 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnNuevoMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnNuevoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel10Layout.createSequentialGroup()
-                                    .addComponent(btnRegMateria)
+                                    .addComponent(btnRegDocumento)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnEliMateria))
-                                .addComponent(txtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnEliDocumento))
+                                .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                                     .addGap(109, 109, 109)
-                                    .addComponent(txtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtIdDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -981,19 +981,19 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
-                .addComponent(txtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRegDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnNuevoMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNuevoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
-                .addComponent(txtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIdDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(162, Short.MAX_VALUE))
         );
 
-        tblMateria.setModel(new javax.swing.table.DefaultTableModel(
+        tblDocumento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1001,20 +1001,20 @@ public final class FrmPanel extends javax.swing.JFrame {
                 "Id", "Tipo de documento"
             }
         ));
-        tblMateria.setRowHeight(20);
-        tblMateria.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblDocumento.setRowHeight(20);
+        tblDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblMateriaMouseClicked(evt);
+                tblDocumentoMouseClicked(evt);
             }
         });
-        jScrollPane6.setViewportView(tblMateria);
+        jScrollPane6.setViewportView(tblDocumento);
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         jLabel32.setText("Buscar");
 
-        txtBuscarMateria.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtBuscarDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBuscarMateriaKeyReleased(evt);
+                txtBuscarDocumentoKeyReleased(evt);
             }
         });
 
@@ -1029,7 +1029,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel32)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtBuscarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBuscarDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE)
                 .addGap(23, 23, 23))
@@ -1042,7 +1042,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtBuscarMateria, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                            .addComponent(txtBuscarDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -1632,15 +1632,15 @@ public final class FrmPanel extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
-        MenuMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/materia.png"))); // NOI18N
-        MenuMateria.setText("Tipo de documento");
-        MenuMateria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        MenuMateria.addMouseListener(new java.awt.event.MouseAdapter() {
+        MenuDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/materia.png"))); // NOI18N
+        MenuDocumento.setText("Tipo de documento");
+        MenuDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        MenuDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MenuMateriaMouseClicked(evt);
+                MenuDocumentoMouseClicked(evt);
             }
         });
-        jMenuBar1.add(MenuMateria);
+        jMenuBar1.add(MenuDocumento);
 
         MenuPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/prestamo.png"))); // NOI18N
         MenuPrestamo.setText("Prestamos");
@@ -1681,7 +1681,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         MenuContactos.setEnabled(true);
         MenuEditorial.setEnabled(true);
         MenuAutor.setEnabled(true);
-        MenuMateria.setEnabled(true);
+        MenuDocumento.setEnabled(true);
         MenuLibro.setEnabled(true);
         LimpiarTable();
         ListarUsuarios();
@@ -1706,8 +1706,8 @@ public final class FrmPanel extends javax.swing.JFrame {
         llenarAutor();
         cbxEditorial.removeAllItems();
         llenarEditorial();
-        cbxMateria.removeAllItems();
-        llenarMateria();
+        cbxDocumento.removeAllItems();
+        llenarDocumento();
         LimpiarTable();
         ListarLibros();
         jTabbedPane1.setSelectedIndex(3);
@@ -1717,7 +1717,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         MenuContactos.setEnabled(true);
         MenuEditorial.setEnabled(true);
         MenuAutor.setEnabled(true);
-        MenuMateria.setEnabled(true);
+        MenuDocumento.setEnabled(true);
         MenuLibro.setEnabled(false);
     }//GEN-LAST:event_MenuLibroActionPerformed
 
@@ -1728,7 +1728,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         MenuContactos.setEnabled(true);
         MenuEditorial.setEnabled(false);
         MenuAutor.setEnabled(true);
-        MenuMateria.setEnabled(true);
+        MenuDocumento.setEnabled(true);
         MenuLibro.setEnabled(true);
         LimpiarTable();
         ListarEditorial();
@@ -1742,7 +1742,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         MenuContactos.setEnabled(true);
         MenuEditorial.setEnabled(true);
         MenuAutor.setEnabled(false);
-        MenuMateria.setEnabled(true);
+        MenuDocumento.setEnabled(true);
         MenuLibro.setEnabled(true);
         LimpiarTable();
         ListarAutor();
@@ -1777,12 +1777,12 @@ public final class FrmPanel extends javax.swing.JFrame {
         limpiarLibros();
     }//GEN-LAST:event_btnRegLibroActionPerformed
 
-    private void btnRegMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegMateriaActionPerformed
-        registrarMateria();
+    private void btnRegDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegDocumentoActionPerformed
+        registrarDocumento();
         LimpiarTable();
         ListarDocumentos();
-        limpiarMateria();
-    }//GEN-LAST:event_btnRegMateriaActionPerformed
+        limpiarDocumento();
+    }//GEN-LAST:event_btnRegDocumentoActionPerformed
 
     private void btnRegEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegEstActionPerformed
         registrarSocio();
@@ -1819,12 +1819,12 @@ public final class FrmPanel extends javax.swing.JFrame {
         imgeditar(btnRegEst);
     }//GEN-LAST:event_tblSociosMouseClicked
 
-    private void tblMateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMateriaMouseClicked
-        int fila = tblMateria.rowAtPoint(evt.getPoint());
-        txtIdMateria.setText(tblMateria.getValueAt(fila, 0).toString());
-        txtMateria.setText(tblMateria.getValueAt(fila, 1).toString());
-        imgeditar(btnRegMateria);
-    }//GEN-LAST:event_tblMateriaMouseClicked
+    private void tblDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocumentoMouseClicked
+        int fila = tblDocumento.rowAtPoint(evt.getPoint());
+        txtIdDocumento.setText(tblDocumento.getValueAt(fila, 0).toString());
+        txtDocumento.setText(tblDocumento.getValueAt(fila, 1).toString());
+        imgeditar(btnRegDocumento);
+    }//GEN-LAST:event_tblDocumentoMouseClicked
 
     private void tblLibrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLibrosMouseClicked
         int fila = tblLibros.rowAtPoint(evt.getPoint());
@@ -1838,7 +1838,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdLAutor.setText(tblLibros.getValueAt(fila, 7).toString());
         cbxAutor.setSelectedItem(tblLibros.getValueAt(fila, 8).toString());
         txtIdLMat.setText(tblLibros.getValueAt(fila, 9).toString());
-        cbxMateria.setSelectedItem(tblLibros.getValueAt(fila, 10).toString());
+        cbxDocumento.setSelectedItem(tblLibros.getValueAt(fila, 10).toString());
         imgeditar(btnRegLibro);
     }//GEN-LAST:event_tblLibrosMouseClicked
 
@@ -1860,7 +1860,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         MenuContactos.setEnabled(true);
         MenuEditorial.setEnabled(true);
         MenuAutor.setEnabled(true);
-        MenuMateria.setEnabled(true);
+        MenuDocumento.setEnabled(true);
         MenuLibro.setEnabled(true);
     }//GEN-LAST:event_MenuEstMouseClicked
 
@@ -1880,7 +1880,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         MenuContactos.setEnabled(true);
         MenuEditorial.setEnabled(true);
         MenuAutor.setEnabled(true);
-        MenuMateria.setEnabled(true);
+        MenuDocumento.setEnabled(true);
         MenuLibro.setEnabled(true);
     }//GEN-LAST:event_MenuPrestamoMouseClicked
 
@@ -1891,7 +1891,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         MenuContactos.setEnabled(false);
         MenuEditorial.setEnabled(true);
         MenuAutor.setEnabled(true);
-        MenuMateria.setEnabled(true);
+        MenuDocumento.setEnabled(true);
         MenuLibro.setEnabled(true);
         Empresa empresa = new Empresa();
         empresa = usuarioDao.getEmpresa();
@@ -1914,7 +1914,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                     LimpiarTable();
                     limpiarSocios();
                     ListarSocios();
-                    JOptionPane.showMessageDialog(null, "Materia Eliminado");
+                    JOptionPane.showMessageDialog(null, "Eliminado");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Eliminar");
                 }
@@ -1944,10 +1944,10 @@ public final class FrmPanel extends javax.swing.JFrame {
         imgregistrar(btnRegLibro);
     }//GEN-LAST:event_btnNuevoLibroActionPerformed
 
-    private void btnNuevoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoMateriaActionPerformed
-        limpiarMateria();
-        imgregistrar(btnRegMateria);
-    }//GEN-LAST:event_btnNuevoMateriaActionPerformed
+    private void btnNuevoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoDocumentoActionPerformed
+        limpiarDocumento();
+        imgregistrar(btnRegDocumento);
+    }//GEN-LAST:event_btnNuevoDocumentoActionPerformed
 
     private void btnNuevoEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoEstActionPerformed
         limpiarSocios();
@@ -2033,24 +2033,24 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliLibroActionPerformed
 
-    private void btnEliMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliMateriaActionPerformed
-        if (txtIdMateria.getText().equals("")) {
+    private void btnEliDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliDocumentoActionPerformed
+        if (txtIdDocumento.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Seleccine una fila");
         } else {
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro eliminar: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (pregunta == 0) {
-                if (materiaDao.eliminar(Integer.parseInt(txtIdMateria.getText()))) {
+                if (documentosDao.eliminar(Integer.parseInt(txtIdDocumento.getText()))) {
                     LimpiarTable();
-                    limpiarMateria();
+                    limpiarDocumento();
                     ListarDocumentos();
-                    JOptionPane.showMessageDialog(null, "Materia Eliminado");
+                    JOptionPane.showMessageDialog(null, "Documento Eliminado");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Eliminar");
                 }
-                imgregistrar(btnRegMateria);
+                imgregistrar(btnRegDocumento);
             }
         }
-    }//GEN-LAST:event_btnEliMateriaActionPerformed
+    }//GEN-LAST:event_btnEliDocumentoActionPerformed
 
     private void btnModificarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarEmpresaActionPerformed
         if (txtRucEmpresa.getText().equals("") || txtNombreEmpresa.getText().equals("") || txtTelefonoEmpresa.getText().equals("")
@@ -2144,10 +2144,10 @@ public final class FrmPanel extends javax.swing.JFrame {
         ListarLibros();
     }//GEN-LAST:event_txtBuscarLibroKeyReleased
 
-    private void txtBuscarMateriaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMateriaKeyReleased
+    private void txtBuscarDocumentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarDocumentoKeyReleased
         LimpiarTable();
         ListarDocumentos();
-    }//GEN-LAST:event_txtBuscarMateriaKeyReleased
+    }//GEN-LAST:event_txtBuscarDocumentoKeyReleased
 
     private void txtBuscarEstKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarEstKeyReleased
         LimpiarTable();
@@ -2159,19 +2159,19 @@ public final class FrmPanel extends javax.swing.JFrame {
         ListarPrestamo();
     }//GEN-LAST:event_txtBuscarPrestamoKeyReleased
 
-    private void MenuMateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMateriaMouseClicked
+    private void MenuDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuDocumentoMouseClicked
         MenuPrestamo.setEnabled(true);
         MenuEst.setEnabled(true);
         MenuUser.setEnabled(true);
         MenuContactos.setEnabled(true);
         MenuEditorial.setEnabled(true);
         MenuAutor.setEnabled(true);
-        MenuMateria.setEnabled(false);
+        MenuDocumento.setEnabled(false);
         MenuLibro.setEnabled(true);
         LimpiarTable();
         ListarDocumentos();
         jTabbedPane1.setSelectedIndex(4);
-    }//GEN-LAST:event_MenuMateriaMouseClicked
+    }//GEN-LAST:event_MenuDocumentoMouseClicked
 
     private void cbxAutorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxAutorItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
@@ -2189,13 +2189,13 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbxEditorialItemStateChanged
 
-    private void cbxMateriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxMateriaItemStateChanged
+    private void cbxDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDocumentoItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             Object item = evt.getItem();
-            Combo combo = libroDao.getMateria(String.valueOf(item));
+            Combo combo = libroDao.getDocumento(String.valueOf(item));
             txtIdLMat.setText("" + combo.getId());
         }
-    }//GEN-LAST:event_cbxMateriaItemStateChanged
+    }//GEN-LAST:event_cbxDocumentoItemStateChanged
 
     private void txtIsbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIsbnActionPerformed
         // TODO add your handling code here:
@@ -2218,9 +2218,9 @@ public final class FrmPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNacimientoActionPerformed
 
-    private void cbxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMateriaActionPerformed
+    private void cbxDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxMateriaActionPerformed
+    }//GEN-LAST:event_cbxDocumentoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2251,38 +2251,38 @@ public final class FrmPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuAutor;
     private javax.swing.JMenuItem MenuContactos;
+    private javax.swing.JMenu MenuDocumento;
     private javax.swing.JMenuItem MenuEditorial;
     private javax.swing.JMenu MenuEst;
     private javax.swing.JMenuItem MenuLibro;
-    private javax.swing.JMenu MenuMateria;
     private javax.swing.JMenu MenuPrestamo;
     private javax.swing.JMenuItem MenuUser;
     private javax.swing.JButton btnElUser;
+    private javax.swing.JButton btnEliDocumento;
     private javax.swing.JButton btnEliEditorial;
     private javax.swing.JButton btnEliEst;
     private javax.swing.JButton btnEliLibro;
-    private javax.swing.JButton btnEliMateria;
     private javax.swing.JButton btnModificarEmpresa;
     private javax.swing.JButton btnNuevoAutor;
+    private javax.swing.JButton btnNuevoDocumento;
     private javax.swing.JButton btnNuevoEditorial;
     private javax.swing.JButton btnNuevoEst;
     private javax.swing.JButton btnNuevoLibro;
-    private javax.swing.JButton btnNuevoMateria;
     private javax.swing.JButton btnNuevoPrestamo;
     private javax.swing.JButton btnNuevoUsuario;
     private javax.swing.JButton btnPrestar;
     private javax.swing.JButton btnRegAutor;
+    private javax.swing.JButton btnRegDocumento;
     private javax.swing.JButton btnRegEditorial;
     private javax.swing.JButton btnRegEst;
     private javax.swing.JButton btnRegLibro;
-    private javax.swing.JButton btnRegMateria;
     private javax.swing.JButton btnRegUser;
     private javax.swing.JButton btnResumen;
     private javax.swing.JComboBox<Object> cbxAutor;
+    private javax.swing.JComboBox<Object> cbxDocumento;
     private javax.swing.JComboBox<Object> cbxEditorial;
     private javax.swing.JComboBox<Object> cbxEstudiante;
     private javax.swing.JComboBox<Object> cbxLibros;
-    private javax.swing.JComboBox<Object> cbxMateria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2353,18 +2353,18 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblAutor;
+    private javax.swing.JTable tblDocumento;
     private javax.swing.JTable tblEditorial;
     private javax.swing.JTable tblLibros;
-    private javax.swing.JTable tblMateria;
     private javax.swing.JTable tblPrestamo;
     private javax.swing.JTable tblSocios;
     private javax.swing.JTable tblUsuarios;
     private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtBuscarAutor;
+    private javax.swing.JTextField txtBuscarDocumento;
     private javax.swing.JTextField txtBuscarEditorial;
     private javax.swing.JTextField txtBuscarEst;
     private javax.swing.JTextField txtBuscarLibro;
-    private javax.swing.JTextField txtBuscarMateria;
     private javax.swing.JTextField txtBuscarPrestamo;
     private javax.swing.JTextField txtBuscarUser;
     private javax.swing.JTextField txtCantLibro;
@@ -2376,12 +2376,14 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtCorreoEmpresa;
     private javax.swing.JTextField txtDireccionEmpresa;
+    private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtEditorial;
     private javax.swing.JButton txtEliAutor;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEstudiante;
     private com.toedter.calendar.JDateChooser txtFechaDev;
     private javax.swing.JTextField txtIdAutor;
+    private javax.swing.JTextField txtIdDocumento;
     private javax.swing.JTextField txtIdEditorial;
     private javax.swing.JTextField txtIdEmpresa;
     private javax.swing.JTextField txtIdEst;
@@ -2389,11 +2391,9 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdLEdi;
     private javax.swing.JTextField txtIdLMat;
     private javax.swing.JTextField txtIdLibro;
-    private javax.swing.JTextField txtIdMateria;
     private javax.swing.JTextField txtIdPrestamo;
     private javax.swing.JTextField txtIdUser;
     private javax.swing.JTextField txtIsbn;
-    private javax.swing.JTextField txtMateria;
     private javax.swing.JTextField txtNacimiento;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreEmpresa;
@@ -2495,29 +2495,29 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }
 
-    private void registrarMateria() {
-        String id = txtIdMateria.getText();
-        String nombre = txtMateria.getText();
+    private void registrarDocumento() {
+        String id = txtIdDocumento.getText();
+        String nombre = txtDocumento.getText();
         //Verificacion de campos vacios
         if (nombre.equals("")) {
             JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
         } else {
-            materia.setMateria(nombre);
+            documento.setDocumento(nombre);
             if (id.equals("")) {
-                if (materiaDao.registrar(materia)) {
+                if (documentosDao.registrar(documento)) {
                     JOptionPane.showMessageDialog(null, "Materia Registrado");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Registrar");
                 }
             } else {
-                materia.setId(Integer.parseInt(id));
-                if (materiaDao.actualizar(materia)) {
+                documento.setId(Integer.parseInt(id));
+                if (documentosDao.actualizar(documento)) {
                     JOptionPane.showMessageDialog(null, "Materia Modificado");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al Modificar");
                 }
             }
-            imgregistrar(btnRegMateria);
+            imgregistrar(btnRegDocumento);
         }
     }
 
@@ -2563,45 +2563,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }
 
-    private void registrarLibro() {
-        String id = txtIdLibro.getText();
-        String titulo = txtTitulo.getText();
-        String cantidad = txtCantLibro.getText();
-        String isbn = txtIsbn.getText();
-        String codigo_bar = txtCodBarra.getText();
-        String aut = txtIdLAutor.getText();
-        String edit = txtIdLEdi.getText();
-        String mat = txtIdLMat.getText();
-        String res = frmResumen.txtResumen.getText();
-        //Verificacion de campos vacios
-        if (titulo.equals("") || cantidad.equals("") || isbn.equals("") || codigo_bar.equals("") || aut.equals("") || edit.equals("") || mat.equals("")) {
-            JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
-        } else {
-            libro.setTitulo(titulo);
-            libro.setAutor(Integer.parseInt(aut));
-            libro.setEditorial(Integer.parseInt(edit));
-            libro.setMateria(Integer.parseInt(mat));
-            libro.setCantidad(Integer.parseInt(cantidad));
-            libro.setIsbn(isbn);
-            libro.setCodigo(codigo_bar);
-            libro.setResumen(res);
-            if (id.equals("")) {
-                if (libroDao.registrar(libro)) {
-                    JOptionPane.showMessageDialog(null, "Libro Registrado");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al Registrar");
-                }
-            } else {
-                libro.setId(Integer.parseInt(id));
-                if (libroDao.actualizar(libro)) {
-                    JOptionPane.showMessageDialog(null, "Libro Modificado");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al Modificar");
-                }
-            }
-            imgregistrar(btnRegLibro);
-        }
-    }
+   
 
     private void llenarAutor() {
         List<Autor> lista = autorDao.Listar(txtBuscarAutor.getText());
@@ -2616,11 +2578,18 @@ public final class FrmPanel extends javax.swing.JFrame {
             cbxEditorial.addItem(lista.get(i).getEditorial());
         }
     }
-
-    private void llenarMateria() {
-        List<Materias> lista = materiaDao.Listar(txtBuscarMateria.getText());
+    
+        private void llenarResumen() {
+        List<Editorial> lista = editorialDao.Listar(txtBuscarEditorial.getText());
         for (int i = 0; i < lista.size(); i++) {
-            cbxMateria.addItem(lista.get(i).getMateria());
+            frmResumen.txtResumen.getText().isEmpty();
+        }
+    }
+
+    private void llenarDocumento() {
+        List<Documentos> lista = documentosDao.Listar(txtBuscarDocumento.getText());
+        for (int i = 0; i < lista.size(); i++) {
+            cbxDocumento.addItem(lista.get(i).getDocumento());
         }
     }
 
@@ -2642,6 +2611,8 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }
 
+
+    
     private void ListarUsuarios() {
         List<Usuarios> Listar = usuarioDao.Listar(txtBuscarUser.getText());
         modelo = (DefaultTableModel) tblUsuarios.getModel();
@@ -2684,16 +2655,56 @@ public final class FrmPanel extends javax.swing.JFrame {
     }
 
     private void ListarDocumentos() {
-        List<Materias> Listar = materiaDao.Listar(txtBuscarMateria.getText());
-        modelo = (DefaultTableModel) tblMateria.getModel();
+        List<Documentos> Listar = documentosDao.Listar(txtBuscarDocumento.getText());
+        modelo = (DefaultTableModel) tblDocumento.getModel();
         Object[] ob = new Object[2];
         for (int i = 0; i < Listar.size(); i++) {
             ob[0] = Listar.get(i).getId();
-            ob[1] = Listar.get(i).getMateria();
+            ob[1] = Listar.get(i).getDocumento();
             modelo.addRow(ob);
         }
-        tblMateria.setModel(modelo);
-        color(tblMateria);
+        tblDocumento.setModel(modelo);
+        color(tblDocumento);
+    }
+    
+         private void registrarLibro() {
+        String id = txtIdLibro.getText();
+        String titulo = txtTitulo.getText();
+        String cantidad = txtCantLibro.getText();
+        String isbn = txtIsbn.getText();
+        String codigo_bar = txtCodBarra.getText();
+        String aut = txtIdLAutor.getText();
+        String edit = txtIdLEdi.getText();
+        String mat = txtIdLMat.getText();
+        String res = frmResumen.txtResumen.getText();
+        //Verificacion de campos vacios
+        if (titulo.equals("") || cantidad.equals("") || isbn.equals("") || codigo_bar.equals("") || aut.equals("") || edit.equals("") || mat.equals("")) {
+            JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
+        } else {
+            libro.setTitulo(titulo);
+            libro.setAutor(Integer.parseInt(aut));
+            libro.setEditorial(Integer.parseInt(edit));
+            libro.setDocumento(Integer.parseInt(mat));
+            libro.setCantidad(Integer.parseInt(cantidad));
+            libro.setIsbn(isbn);
+            libro.setCodigo(codigo_bar);
+            libro.setResumen(res);
+            if (id.equals("")) {
+                if (libroDao.registrar(libro)) {
+                    JOptionPane.showMessageDialog(null, "Libro Registrado");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al Registrar");
+                }
+            } else {
+                libro.setId(Integer.parseInt(id));
+                if (libroDao.actualizar(libro)) {
+                    JOptionPane.showMessageDialog(null, "Libro Modificado");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al Modificar");
+                }
+            }
+            imgregistrar(btnRegLibro);
+        }
     }
 
     private void ListarLibros() {
@@ -2710,8 +2721,8 @@ public final class FrmPanel extends javax.swing.JFrame {
             ob[6] = Listar.get(i).getEditorial_nombre();
             ob[7] = Listar.get(i).getAutor();
             ob[8] = Listar.get(i).getAutor_nombre();
-            ob[9] = Listar.get(i).getMateria();
-            ob[10] = Listar.get(i).getMateria_nombre();
+            ob[9] = Listar.get(i).getDocumento();
+            ob[10] = Listar.get(i).getDocumento_nombre();
             ob[11] = Listar.get(i).getResumen();
             modelo.addRow(ob);
         }
@@ -2782,9 +2793,9 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }
 
-    private void limpiarMateria() {
-        txtIdMateria.setText("");
-        txtMateria.setText("");
+    private void limpiarDocumento() {
+        txtIdDocumento.setText("");
+        txtDocumento.setText("");
     }
 
     private void limpiarUsuarios() {

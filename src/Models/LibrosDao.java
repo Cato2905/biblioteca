@@ -17,14 +17,14 @@ public class LibrosDao {
     ResultSet rs;
 
     public boolean registrar(Libros lb) {
-        String sql = "INSERT INTO libros (titulo, id_autor, id_editorial, id_materia, cantidad, isbn, codigo, resumen) VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO libros (titulo, id_autor, id_editorial, id_documento, cantidad, isbn, codigo, resumen) VALUES (?,?,?,?,?,?,?,?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, lb.getTitulo());
             ps.setInt(2, lb.getAutor());
             ps.setInt(3, lb.getEditorial());
-            ps.setInt(4, lb.getMateria());
+            ps.setInt(4, lb.getDocumento());
             ps.setInt(5, lb.getCantidad());
             ps.setString(6, lb.getIsbn());
             ps.setString(7, lb.getCodigo());
@@ -39,14 +39,14 @@ public class LibrosDao {
 
     public boolean actualizar(Libros lb) {
         boolean res;
-        String sql = "UPDATE libros SET titulo=?, id_autor=?, id_editorial=?, id_materia=?, cantidad=?, isbn=?, codigo=?, resumen=? WHERE id = ?";
+        String sql = "UPDATE libros SET titulo=?, id_autor=?, id_editorial=?, id_documento=?, cantidad=?, isbn=?, codigo=?, resumen=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, lb.getTitulo());
             ps.setInt(2, lb.getAutor());
             ps.setInt(3, lb.getEditorial());
-            ps.setInt(4, lb.getMateria());
+            ps.setInt(4, lb.getDocumento());
             ps.setInt(5, lb.getCantidad());
             ps.setString(6, lb.getIsbn());
             ps.setString(7, lb.getCodigo());
@@ -66,10 +66,10 @@ public class LibrosDao {
         try {
             con = cn.getConnection();
             if ("".equalsIgnoreCase(valor)) {
-                String sql = "SELECT l.*, e.id AS id_editorial, e.editorial, a.id AS id_autor, a.autor, m.id AS id_materia, m.materia FROM libros l INNER JOIN editorial e ON e.id = l.id_editorial INNER JOIN autor a ON a.id = l.id_autor INNER JOIN materias m ON m.id = l.id_materia ORDER BY l.id DESC";
+                String sql = "SELECT l.*, e.id AS id_editorial, e.editorial, a.id AS id_autor, a.autor, m.id AS id_documento, m.documento FROM libros l INNER JOIN editorial e ON e.id = l.id_editorial INNER JOIN autor a ON a.id = l.id_autor INNER JOIN documentos m ON m.id = l.id_documento ORDER BY l.id DESC";
                 ps = con.prepareStatement(sql);
             } else {
-                String sql = "SELECT l.*, e.id AS id_editorial, e.editorial, a.id AS id_autor, a.autor, m.id AS id_materia, m.materia FROM libros l INNER JOIN editorial e ON e.id = l.id_editorial INNER JOIN autor a ON a.id = l.id_autor INNER JOIN materias m ON m.id = l.id_materia WHERE l.titulo LIKE '%" + valor + "%' OR e.editorial LIKE '%" + valor + "%' OR m.materia LIKE '%" + valor + "%'";
+                String sql = "SELECT l.*, e.id AS id_editorial, e.editorial, a.id AS id_autor, a.autor, m.id AS id_documento, m.documento FROM libros l INNER JOIN editorial e ON e.id = l.id_editorial INNER JOIN autor a ON a.id = l.id_autor INNER JOIN documentos m ON m.id = l.id_documento WHERE l.titulo LIKE '%" + valor + "%' OR e.editorial LIKE '%" + valor + "%' OR m.documento LIKE '%" + valor + "%'";
                 ps = con.prepareStatement(sql);
             }
             rs = ps.executeQuery();
@@ -79,13 +79,13 @@ public class LibrosDao {
                 lb.setTitulo(rs.getString("titulo"));
                 lb.setAutor(rs.getInt("id_autor"));
                 lb.setEditorial(rs.getInt("id_editorial"));
-                lb.setMateria(rs.getInt("id_materia"));
+                lb.setDocumento(rs.getInt("id_documento"));
                 lb.setCantidad(rs.getInt("cantidad"));
                 lb.setIsbn(rs.getString("isbn"));
                 lb.setCodigo(rs.getString("codigo"));
                 lb.setAutor_nombre(rs.getString("autor"));
                 lb.setEditorial_nombre(rs.getString("editorial"));
-                lb.setMateria_nombre(rs.getString("materia"));
+                lb.setDocumento_nombre(rs.getString("documento"));
                 lb.setResumen(rs.getString("resumen"));
                 lista.add(lb);
             }
@@ -146,9 +146,9 @@ public class LibrosDao {
         return lb;
     }
 
-    public Combo getMateria(String valor) {
+    public Combo getDocumento(String valor) {
         Combo lb = new Combo();
-        String sql = "SELECT * FROM materias WHERE materia = ?";
+        String sql = "SELECT * FROM documentos WHERE documento = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, valor);

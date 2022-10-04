@@ -73,7 +73,7 @@ public class FrmResumen extends javax.swing.JFrame {
 
     private void btnGuardarResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarResumenActionPerformed
 
-        registrarLibro();
+        
         this.dispose();
     }//GEN-LAST:event_btnGuardarResumenActionPerformed
 
