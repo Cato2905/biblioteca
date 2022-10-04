@@ -16,7 +16,6 @@ import Models.Prestamos;
 import Models.PrestamosDao;
 import Models.Usuarios;
 import Models.UsuariosDao;
-import Views.FrmResumen;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.text.SimpleDateFormat;
@@ -49,7 +48,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     Prestamos prestamo = new Prestamos();
     PrestamosDao prestamoDao = new PrestamosDao();
     DefaultTableModel modelo = new DefaultTableModel();
-    FrmResumen frmResumen = new FrmResumen();
+    
     
 
     public FrmPanel(String user) {
@@ -158,7 +157,8 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdLAutor = new javax.swing.JTextField();
         txtIdLEdi = new javax.swing.JTextField();
         txtIdLMat = new javax.swing.JTextField();
-        btnResumen = new javax.swing.JButton();
+        txtResumen = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblLibros = new javax.swing.JTable();
         jLabel33 = new javax.swing.JLabel();
@@ -255,7 +255,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Nuevo usuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo usuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel1.setText("Usuario");
@@ -362,7 +362,6 @@ public final class FrmPanel extends javax.swing.JFrame {
                 "Id", "Usuario", "Nombre", "Correo"
             }
         ));
-        tblUsuarios.setRowHeight(20);
         tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblUsuariosMouseClicked(evt);
@@ -416,7 +415,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Nueva Editorial", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nueva Editorial", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel6.setText("Nombre");
@@ -494,7 +493,6 @@ public final class FrmPanel extends javax.swing.JFrame {
                 "Id", "Editorial"
             }
         ));
-        tblEditorial.setRowHeight(20);
         tblEditorial.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblEditorialMouseClicked(evt);
@@ -555,7 +553,6 @@ public final class FrmPanel extends javax.swing.JFrame {
                 "Id", "Autor"
             }
         ));
-        tblAutor.setRowHeight(20);
         tblAutor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblAutorMouseClicked(evt);
@@ -564,7 +561,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tblAutor);
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Nuevo Autor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Autor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel7.setText("Nombre");
@@ -679,7 +676,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Nuevo Libro", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Libro", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel8.setText("Título");
@@ -757,24 +754,19 @@ public final class FrmPanel extends javax.swing.JFrame {
             }
         });
 
-        btnResumen.setText("Agregar Resumen");
-        btnResumen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResumenActionPerformed(evt);
-            }
-        });
+        jLabel43.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel43.setText("Resumen");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+            .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnResumen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnNuevoLibro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNuevoLibro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTitulo)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtIdLMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -784,9 +776,9 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addComponent(txtIdLAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cbxEditorial, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxDocumento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                    .addComponent(cbxEditorial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxDocumento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
                             .addComponent(txtCantLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -794,18 +786,20 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtIsbn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtCodBarra, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbxAutor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                    .addComponent(txtCodBarra)
+                    .addComponent(cbxAutor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(btnRegLibro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEliLibro))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                    .addComponent(txtResumen)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel14))
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel43))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -848,8 +842,10 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCodBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnResumen, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtResumen, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -864,10 +860,9 @@ public final class FrmPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Título", "Cantidad", "ISBN", "Codigo de barras", "", "Editorial", "", "Autor", "", "Tipo documento"
+                "Id", "Título", "Cantidad", "ISBN", "Codigo de barras", "", "Editorial", "", "Autor", "", "Tipo documento", "Title 12"
             }
         ));
-        tblLibros.setRowHeight(20);
         tblLibros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblLibrosMouseClicked(evt);
@@ -920,7 +915,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel10.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Nuevo Tipo de Documento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Tipo de Documento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel15.setText("Tipo de documento");
@@ -1001,7 +996,6 @@ public final class FrmPanel extends javax.swing.JFrame {
                 "Id", "Tipo de documento"
             }
         ));
-        tblDocumento.setRowHeight(20);
         tblDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDocumentoMouseClicked(evt);
@@ -1055,7 +1049,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel12.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Nuevo Socio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Socio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel16.setText("Rut");
@@ -1204,7 +1198,6 @@ public final class FrmPanel extends javax.swing.JFrame {
                 "Id", "Rut", "Email", "Nombre", "Teléfono", "Direccion"
             }
         ));
-        tblSocios.setRowHeight(20);
         tblSocios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblSociosMouseClicked(evt);
@@ -1257,7 +1250,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel16.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Nuevo Prestamo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 14))); // NOI18N
+        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Prestamo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 14))); // NOI18N
 
         jLabel25.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
@@ -1383,7 +1376,6 @@ public final class FrmPanel extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblPrestamo.setRowHeight(20);
         tblPrestamo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblPrestamoMouseClicked(evt);
@@ -1436,7 +1428,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel15.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Datos de Contacto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 18))); // NOI18N
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Contacto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 18))); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel5.setText("Ruc");
@@ -1839,6 +1831,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         cbxAutor.setSelectedItem(tblLibros.getValueAt(fila, 8).toString());
         txtIdLMat.setText(tblLibros.getValueAt(fila, 9).toString());
         cbxDocumento.setSelectedItem(tblLibros.getValueAt(fila, 10).toString());
+        txtResumen.setText(tblLibros.getValueAt(fila, 11).toString());
         imgeditar(btnRegLibro);
     }//GEN-LAST:event_tblLibrosMouseClicked
 
@@ -2205,15 +2198,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCarreraActionPerformed
 
-    private void btnResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResumenActionPerformed
-        
-        FrmResumen vResumen = new FrmResumen();
-        
-        vResumen.setVisible(true);
-        
-        
-    }//GEN-LAST:event_btnResumenActionPerformed
-
     private void txtNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNacimientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNacimientoActionPerformed
@@ -2277,7 +2261,6 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JButton btnRegEst;
     private javax.swing.JButton btnRegLibro;
     private javax.swing.JButton btnRegUser;
-    private javax.swing.JButton btnResumen;
     private javax.swing.JComboBox<Object> cbxAutor;
     private javax.swing.JComboBox<Object> cbxDocumento;
     private javax.swing.JComboBox<Object> cbxEditorial;
@@ -2320,6 +2303,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2397,6 +2381,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtNacimiento;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreEmpresa;
+    private javax.swing.JTextField txtResumen;
     private javax.swing.JTextField txtRucEmpresa;
     private javax.swing.JTextField txtRut;
     private javax.swing.JTextField txtTelefono;
@@ -2579,12 +2564,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }
     
-        private void llenarResumen() {
-        List<Editorial> lista = editorialDao.Listar(txtBuscarEditorial.getText());
-        for (int i = 0; i < lista.size(); i++) {
-            frmResumen.txtResumen.getText().isEmpty();
-        }
-    }
+
 
     private void llenarDocumento() {
         List<Documentos> lista = documentosDao.Listar(txtBuscarDocumento.getText());
@@ -2676,7 +2656,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         String aut = txtIdLAutor.getText();
         String edit = txtIdLEdi.getText();
         String mat = txtIdLMat.getText();
-        String res = frmResumen.txtResumen.getText();
+        String res = txtResumen.getText();
         //Verificacion de campos vacios
         if (titulo.equals("") || cantidad.equals("") || isbn.equals("") || codigo_bar.equals("") || aut.equals("") || edit.equals("") || mat.equals("")) {
             JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
