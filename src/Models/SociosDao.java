@@ -1,4 +1,3 @@
-
 package Models;
 
 import Util.Conexion;
@@ -11,12 +10,14 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class SociosDao {
+
     Connection con;
     Conexion cn = new Conexion();
     PreparedStatement ps;
     ResultSet rs;
+
     public boolean registrar(Socios est) {
-        String sql = "INSERT INTO socios (rut, email, nombre, telefono, direccion) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO socios (rut, email, nombre, telefono, direccion,nacimiento) VALUES (?,?,?,?,?,?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -25,6 +26,7 @@ public class SociosDao {
             ps.setString(3, est.getNombre());
             ps.setString(4, est.getTelefono());
             ps.setString(5, est.getDireccion());
+            ps.setString(6, est.getNacimiento());
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -35,7 +37,7 @@ public class SociosDao {
 
     public boolean actualizar(Socios est) {
         boolean res;
-        String sql = "UPDATE socios SET rut=?, email=?, nombre=?, telefono=?, direccion=? WHERE id = ?";
+        String sql = "UPDATE socios SET rut=?, email=?, nombre=?, telefono=?, direccion=?, nacimiento=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -44,7 +46,8 @@ public class SociosDao {
             ps.setString(3, est.getNombre());
             ps.setString(4, est.getTelefono());
             ps.setString(5, est.getDireccion());
-            ps.setInt(6, est.getId());
+            ps.setString(6, est.getNacimiento());
+            ps.setInt(7, est.getId());
             ps.execute();
             res = true;
         } catch (SQLException ex) {
@@ -74,6 +77,7 @@ public class SociosDao {
                 est.setNombre(rs.getString("nombre"));
                 est.setTelefono(rs.getString("telefono"));
                 est.setDireccion(rs.getString("direccion"));
+                est.setNacimiento(rs.getString("nacimiento"));
                 lista.add(est);
             }
         } catch (SQLException e) {
@@ -101,30 +105,31 @@ public class SociosDao {
             }
         }
     }
-    
+
     public static boolean validarRut(String rut) {
 
-    boolean validacion = false;
-    try {
-        rut =  rut.toUpperCase();
-        rut = rut.replace(".", "");
-        rut = rut.replace("-", "");
-        int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+        boolean validacion = false;
+        try {
+            rut = rut.toUpperCase();
+            rut = rut.replace(".", "");
+            rut = rut.replace("-", "");
+            int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
 
-        char dv = rut.charAt(rut.length() - 1);
+            char dv = rut.charAt(rut.length() - 1);
 
-        int m = 0, s = 1;
-        for (; rutAux != 0; rutAux /= 10) {
-            s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+            int m = 0, s = 1;
+            for (; rutAux != 0; rutAux /= 10) {
+                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+            }
+            if (dv == (char) (s != 0 ? s + 47 : 75)) {
+                validacion = true;
+            }
+
+        } catch (java.lang.NumberFormatException e) {
+        } catch (Exception e) {
         }
-        if (dv == (char) (s != 0 ? s + 47 : 75)) {
-            validacion = true;
-        }
-
-    } catch (java.lang.NumberFormatException e) {
-    } catch (Exception e) {
+        return validacion;
     }
-    return validacion;
-}
+    
 
 }

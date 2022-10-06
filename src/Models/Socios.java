@@ -9,11 +9,12 @@ public class Socios {
     private String telefono;
     private String direccion;
     private String contrasena;
+    private String nacimiento;
 
     public Socios() {
     }
 
-    public Socios(int id, String rut, String email, String nombre, String telefono, String direccion, String contrasena) {
+    public Socios(int id, String rut, String email, String nombre, String telefono, String direccion, String contrasena, String nacimiento) {
         this.id = id;
         this.rut = rut;
         this.email = email;
@@ -21,6 +22,7 @@ public class Socios {
         this.telefono = telefono;
         this.direccion = direccion;
         this.contrasena = contrasena;
+        this.nacimiento = nacimiento;
     }
 
     public int getId() {
@@ -78,4 +80,13 @@ public class Socios {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+
+    public String getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(String nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
 }
