@@ -2922,7 +2922,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         boolean estado;
         for (int i = 0; i < Listar.size(); i++) {
             ob[0] = Listar.get(i).getId();
-            ob[1] = Listar.get(i).getNombre_est();
+            ob[1] = Listar.get(i).getNombre_soc();
             ob[2] = Listar.get(i).getTitulo();
             ob[3] = Listar.get(i).getCantidad();
             ob[4] = Listar.get(i).getCantidad();

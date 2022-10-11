@@ -55,10 +55,10 @@ public class PrestamosDao {
         try {
             con = cn.getConnection();
             if ("".equalsIgnoreCase(valor)) {
-                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, e.id AS id_est, e.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios e ON e.id = p.id_socio ORDER BY p.id DESC";
+                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, e.id AS id_soc, e.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios e ON e.id = p.id_socio ORDER BY p.id DESC";
                 ps = con.prepareStatement(sql);
             } else {
-                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, e.id AS id_est, e.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios e ON e.id = p.id_socio WHERE e.nombre LIKE '%" + valor + "%' OR l.titulo LIKE '%" + valor + "%' OR p.fecha_prestamo LIKE '%" + valor + "%'";
+                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, e.id AS id_soc, e.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios e ON e.id = p.id_socio WHERE e.nombre LIKE '%" + valor + "%' OR l.titulo LIKE '%" + valor + "%' OR p.fecha_prestamo LIKE '%" + valor + "%'";
                 ps = con.prepareStatement(sql);
             }
             rs = ps.executeQuery();
@@ -66,7 +66,7 @@ public class PrestamosDao {
                 Prestamos pre = new Prestamos();
                 pre.setId(rs.getInt("id"));
                 pre.setTitulo(rs.getString("titulo"));
-                pre.setNombre_est(rs.getString("nombre"));
+                pre.setNombre_soc(rs.getString("nombre"));
                 pre.setCantidad(rs.getInt("cantidad"));
                 pre.setFecha_prestamo(rs.getString("fecha_prestamo"));
                 pre.setFecha_dev(rs.getString("fecha_devolucion"));
