@@ -1350,6 +1350,11 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel30.setText("Buscar");
 
         cbxLibros1.setEditable(true);
+        cbxLibros1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxLibros1ActionPerformed(evt);
+            }
+        });
 
         jLabel44.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel44.setText("Cantidad");
@@ -1359,6 +1364,11 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel45.setText("Libro");
 
         cbxLibros2.setEditable(true);
+        cbxLibros2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxLibros2ActionPerformed(evt);
+            }
+        });
 
         jLabel46.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel46.setText("Cantidad");
@@ -1531,7 +1541,7 @@ public final class FrmPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Socio", "Libro", "Cant", "null", "null", "null", "", "F. Prestamo", "F. Devolución", "Estado"
+                "Id", "Socio", "Libro 1", "Cant 1", "Libro 2", "Cant 2", "Libro 3", "Cant 3", "F. Prestamo", "F. Devolución", "Estado"
             }
         ) {
             Class[] types = new Class [] {
@@ -1555,6 +1565,19 @@ public final class FrmPanel extends javax.swing.JFrame {
             }
         });
         jScrollPane7.setViewportView(tblPrestamo);
+        if (tblPrestamo.getColumnModel().getColumnCount() > 0) {
+            tblPrestamo.getColumnModel().getColumn(0).setHeaderValue("Id");
+            tblPrestamo.getColumnModel().getColumn(1).setHeaderValue("Socio");
+            tblPrestamo.getColumnModel().getColumn(2).setHeaderValue("Libro 1");
+            tblPrestamo.getColumnModel().getColumn(3).setHeaderValue("Cant 1");
+            tblPrestamo.getColumnModel().getColumn(4).setHeaderValue("Libro 2");
+            tblPrestamo.getColumnModel().getColumn(5).setHeaderValue("Cant 2");
+            tblPrestamo.getColumnModel().getColumn(6).setHeaderValue("Libro 3");
+            tblPrestamo.getColumnModel().getColumn(7).setHeaderValue("Cant 3");
+            tblPrestamo.getColumnModel().getColumn(8).setHeaderValue("F. Prestamo");
+            tblPrestamo.getColumnModel().getColumn(9).setHeaderValue("F. Devolución");
+            tblPrestamo.getColumnModel().getColumn(10).setHeaderValue("Estado");
+        }
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -2233,8 +2256,14 @@ public final class FrmPanel extends javax.swing.JFrame {
                 Combo soc = (Combo) cbxSocio.getSelectedItem();
                 prestamo.setSocio(soc.getId());
                 Combo lb = (Combo) cbxLibros.getSelectedItem();
+                Combo lb1 = (Combo) cbxLibros1.getSelectedItem();
+                Combo lb2 = (Combo) cbxLibros2.getSelectedItem();
                 prestamo.setLibro(lb.getId());
                 prestamo.setCantidad(Integer.parseInt(txtCantPrestamo.getText()));
+                prestamo.setLibro1(lb1.getId());
+                prestamo.setCantidad1(Integer.parseInt(txtCantPrestamo1.getText()));
+                prestamo.setLibro2(lb2.getId());
+                prestamo.setCantidad2(Integer.parseInt(txtCantPrestamo2.getText()));
                 Date fecha = new Date();
                 prestamo.setFecha_prestamo(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
                 prestamo.setFecha_dev(new SimpleDateFormat("dd/MM/yyyy").format(txtFechaDev.getDate()));
@@ -2372,6 +2401,14 @@ public final class FrmPanel extends javax.swing.JFrame {
     private void stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockActionPerformed
        
     }//GEN-LAST:event_stockActionPerformed
+
+    private void cbxLibros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibros1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxLibros1ActionPerformed
+
+    private void cbxLibros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibros2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxLibros2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2925,10 +2962,10 @@ public final class FrmPanel extends javax.swing.JFrame {
             ob[1] = Listar.get(i).getNombre_soc();
             ob[2] = Listar.get(i).getTitulo();
             ob[3] = Listar.get(i).getCantidad();
-            ob[4] = Listar.get(i).getCantidad();
-            ob[5] = Listar.get(i).getCantidad();
-            ob[6] = Listar.get(i).getCantidad();
-            ob[7] = Listar.get(i).getCantidad();
+            ob[4] = Listar.get(i).getTitulo();
+            ob[5] = Listar.get(i).getCantidad1();
+            ob[6] = Listar.get(i).getTitulo();
+            ob[7] = Listar.get(i).getCantidad2();
             ob[8] = Listar.get(i).getFecha_prestamo();
             ob[9] = Listar.get(i).getFecha_dev();
             estado = Listar.get(i).getEstado() == 1;

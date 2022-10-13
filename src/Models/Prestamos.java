@@ -6,11 +6,11 @@ public class Prestamos {
     private int socio;
     private String nombre_soc;
     private int libro;
+    private int libro1;
+    private int libro2;
     private String titulo;
     private int cantidad;
-    private String titulo1;
     private int cantidad1;
-    private String titulo2;
     private int cantidad2;
     private String fecha_prestamo;
     private String fecha_dev;
@@ -19,16 +19,16 @@ public class Prestamos {
     public Prestamos() {
     }
 
-    public Prestamos(int id, int socio, String nombre_soc, int libro, String titulo, int cantidad, String titulo1, int cantidad1, String titulo2, int cantidad2, String fecha_prestamo, String fecha_dev, int estado) {
+    public Prestamos(int id, int socio, String nombre_soc, int libro, int libro1, int libro2, String titulo, int cantidad, int cantidad1, int cantidad2, String fecha_prestamo, String fecha_dev, int estado) {
         this.id = id;
         this.socio = socio;
         this.nombre_soc = nombre_soc;
         this.libro = libro;
+        this.libro = libro1;
+        this.libro = libro2;
         this.titulo = titulo;
         this.cantidad = cantidad;
-        this.titulo = titulo1;
-        this.cantidad = cantidad1;
-        this.titulo = titulo2;
+        this.cantidad = cantidad2;
         this.cantidad = cantidad2;
         this.fecha_prestamo = fecha_prestamo;
         this.fecha_dev = fecha_dev;
@@ -67,6 +67,22 @@ public class Prestamos {
         this.libro = libro;
     }
 
+    public int getLibro1() {
+        return libro1;
+    }
+
+    public void setLibro1(int libro1) {
+        this.libro1 = libro1;
+    }
+
+    public int getLibro2() {
+        return libro2;
+    }
+
+    public void setLibro2(int libro2) {
+        this.libro2 = libro2;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -79,12 +95,8 @@ public class Prestamos {
         return cantidad;
     }
 
-    public String getTitulo1() {
-        return titulo1;
-    }
-
-    public void setTitulo1(String titulo1) {
-        this.titulo1 = titulo1;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public int getCantidad1() {
@@ -95,24 +107,12 @@ public class Prestamos {
         this.cantidad1 = cantidad1;
     }
 
-    public String getTitulo2() {
-        return titulo2;
-    }
-
-    public void setTitulo2(String titulo2) {
-        this.titulo2 = titulo2;
-    }
-
     public int getCantidad2() {
         return cantidad2;
     }
 
     public void setCantidad2(int cantidad2) {
         this.cantidad2 = cantidad2;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public String getFecha_prestamo() {

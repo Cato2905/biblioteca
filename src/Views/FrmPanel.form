@@ -2412,6 +2412,9 @@
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxLibros1ActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
                   </AuxValues>
@@ -2444,6 +2447,9 @@
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxLibros2ActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
                   </AuxValues>
@@ -2508,12 +2514,12 @@
                       <Table columnCount="11" rowCount="0">
                         <Column editable="true" title="Id" type="java.lang.Object"/>
                         <Column editable="true" title="Socio" type="java.lang.Object"/>
-                        <Column editable="true" title="Libro" type="java.lang.Object"/>
-                        <Column editable="true" title="Cant" type="java.lang.Object"/>
-                        <Column editable="true" title="null" type="java.lang.Object"/>
-                        <Column editable="true" title="null" type="java.lang.Object"/>
-                        <Column editable="true" title="null" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
+                        <Column editable="true" title="Libro 1" type="java.lang.Object"/>
+                        <Column editable="true" title="Cant 1" type="java.lang.Object"/>
+                        <Column editable="true" title="Libro 2" type="java.lang.Object"/>
+                        <Column editable="true" title="Cant 2" type="java.lang.Object"/>
+                        <Column editable="true" title="Libro 3" type="java.lang.Object"/>
+                        <Column editable="true" title="Cant 3" type="java.lang.Object"/>
                         <Column editable="true" title="F. Prestamo" type="java.lang.Object"/>
                         <Column editable="true" title="F. Devoluci&#xf3;n" type="java.lang.Object"/>
                         <Column editable="false" title="Estado" type="java.lang.Boolean"/>
@@ -2522,57 +2528,57 @@
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Id"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Socio"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Libro 1"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Cant 1"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Libro 2"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Cant 2"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Libro 3"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Cant 3"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="F. Prestamo"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="F. Devoluci&#xf3;n"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
+                          <Title value="Estado"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
