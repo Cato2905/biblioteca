@@ -9,6 +9,8 @@ public class Prestamos {
     private int libro1;
     private int libro2;
     private String titulo;
+    private String titulo1;
+    private String titulo2;
     private int cantidad;
     private int cantidad1;
     private int cantidad2;
@@ -19,7 +21,7 @@ public class Prestamos {
     public Prestamos() {
     }
 
-    public Prestamos(int id, int socio, String nombre_soc, int libro, int libro1, int libro2, String titulo, int cantidad, int cantidad1, int cantidad2, String fecha_prestamo, String fecha_dev, int estado) {
+    public Prestamos(int id, int socio, String nombre_soc, int libro, int libro1, int libro2, String titulo, String titulo1, String titulo2, int cantidad, int cantidad1, int cantidad2, String fecha_prestamo, String fecha_dev, int estado) {
         this.id = id;
         this.socio = socio;
         this.nombre_soc = nombre_soc;
@@ -27,6 +29,8 @@ public class Prestamos {
         this.libro = libro1;
         this.libro = libro2;
         this.titulo = titulo;
+        this.titulo1 = titulo1;
+        this.titulo2 = titulo2;
         this.cantidad = cantidad;
         this.cantidad = cantidad2;
         this.cantidad = cantidad2;
@@ -89,6 +93,22 @@ public class Prestamos {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getTitulo1() {
+        return titulo1;
+    }
+
+    public void setTitulo1(String titulo1) {
+        this.titulo1 = titulo1;
+    }
+
+    public String getTitulo2() {
+        return titulo2;
+    }
+
+    public void setTitulo2(String titulo2) {
+        this.titulo2 = titulo2;
     }
 
     public int getCantidad() {

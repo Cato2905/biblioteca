@@ -48,8 +48,6 @@ public final class FrmPanel extends javax.swing.JFrame {
     Prestamos prestamo = new Prestamos();
     PrestamosDao prestamoDao = new PrestamosDao();
     DefaultTableModel modelo = new DefaultTableModel();
-    
-    
 
     public FrmPanel(String user) {
         initComponents();
@@ -1985,7 +1983,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtEstudiante.setText(tblSocios.getValueAt(fila, 3).toString());
         txtTelefono.setText(tblSocios.getValueAt(fila, 4).toString());
         txtCarrera.setText(tblSocios.getValueAt(fila, 5).toString());
-       // txtNacimiento.setDate(tblSocios.getValueAt(fila, 6).toString());
+        // txtNacimiento.setDate(tblSocios.getValueAt(fila, 6).toString());
         imgeditar(btnRegSocio);
     }//GEN-LAST:event_tblSociosMouseClicked
 
@@ -2399,7 +2397,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxLibrosActionPerformed
 
     private void stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockActionPerformed
-       
+
     }//GEN-LAST:event_stockActionPerformed
 
     private void cbxLibros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibros1ActionPerformed
@@ -2733,7 +2731,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         String carrera = txtCarrera.getText();
 //      String nacimiento = txtNacimiento.getText();
 //      prestamo.setFecha_dev(new SimpleDateFormat("dd/MM/yyyy").format(txtFechaDev.getDate()));
-        
+
         //Verificacion de campos vacios
         if (rut.equals("") || email.equals("") || nombre.equals("") || telefono.equals("") || carrera.equals("")) {
             JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
@@ -2770,8 +2768,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }
 
-   
-
     private void llenarAutor() {
         List<Autor> lista = autorDao.Listar(txtBuscarAutor.getText());
         for (int i = 0; i < lista.size(); i++) {
@@ -2785,8 +2781,6 @@ public final class FrmPanel extends javax.swing.JFrame {
             cbxEditorial.addItem(lista.get(i).getEditorial());
         }
     }
-    
-
 
     private void llenarDocumento() {
         List<Documentos> lista = documentosDao.Listar(txtBuscarDocumento.getText());
@@ -2815,8 +2809,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }
 
-
-    
     private void ListarUsuarios() {
         List<Usuarios> Listar = usuarioDao.Listar(txtBuscarUser.getText());
         modelo = (DefaultTableModel) tblUsuarios.getModel();
@@ -2870,8 +2862,8 @@ public final class FrmPanel extends javax.swing.JFrame {
         tblDocumento.setModel(modelo);
         color(tblDocumento);
     }
-    
-         private void registrarLibro() {
+
+    private void registrarLibro() {
         String id = txtIdLibro.getText();
         String titulo = txtTitulo.getText();
         String cantidad = txtCantLibro.getText();
@@ -2962,9 +2954,9 @@ public final class FrmPanel extends javax.swing.JFrame {
             ob[1] = Listar.get(i).getNombre_soc();
             ob[2] = Listar.get(i).getTitulo();
             ob[3] = Listar.get(i).getCantidad();
-            ob[4] = Listar.get(i).getTitulo();
+            ob[4] = Listar.get(i).getTitulo1();
             ob[5] = Listar.get(i).getCantidad1();
-            ob[6] = Listar.get(i).getTitulo();
+            ob[6] = Listar.get(i).getTitulo2();
             ob[7] = Listar.get(i).getCantidad2();
             ob[8] = Listar.get(i).getFecha_prestamo();
             ob[9] = Listar.get(i).getFecha_dev();

@@ -59,17 +59,19 @@ public class PrestamosDao {
         try {
             con = cn.getConnection();
             if ("".equalsIgnoreCase(valor)) {
-                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, s.id AS id_soc, s.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios s ON s.id = p.id_socio ORDER BY p.id DESC";
+                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, l1.id AS id_libro1, l1.titulo, l2.id AS id_libro2, l2.titulo,s.id AS id_soc, s.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN libros l1 ON l1.id = p.id_libro1 INNER JOIN libros l2 ON l2.id = p.id_libro2 INNER JOIN socios s ON s.id = p.id_socio ORDER BY p.id DESC";
                 ps = con.prepareStatement(sql);
             } else {
-                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, s.id AS id_soc, s.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios s ON s.id = p.id_socio WHERE s.nombre LIKE '%" + valor + "%' OR l.titulo LIKE '%" + valor + "%' OR p.fecha_prestamo LIKE '%" + valor + "%'";
+                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, l1.id AS id_libro1, l1.titulo, l2.id AS id_libro2, l2.titulo,s.id AS id_soc, s.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN libros l1 ON l1.id = p.id_libro1 INNER JOIN libros l2 ON l2.id = p.id_libro2 INNER JOIN socios s ON s.id = p.id_socio WHERE s.nombre LIKE '%" + valor + "%' OR l.titulo LIKE '%" + valor + "%' OR p.fecha_prestamo LIKE '%" + valor + "%'";
                 ps = con.prepareStatement(sql);
             }
             rs = ps.executeQuery();
             while (rs.next()) {
                 Prestamos pre = new Prestamos();
                 pre.setId(rs.getInt("id"));
-                pre.setTitulo(rs.getString("titulo"));
+                pre.setTitulo(rs.getString("l.titulo"));
+                pre.setTitulo1(rs.getString("l1.titulo"));
+                pre.setTitulo2(rs.getString("l2.titulo"));
                 pre.setNombre_soc(rs.getString("nombre"));
                 pre.setCantidad(rs.getInt("cantidad"));
                 pre.setCantidad1(rs.getInt("cantidad1"));
