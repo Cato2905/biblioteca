@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 public class SociosDao {
@@ -65,20 +67,20 @@ public class SociosDao {
                 String sql = "SELECT * FROM socios ORDER BY id DESC";
                 ps = con.prepareStatement(sql);
             } else {
-                String sql = "SELECT * FROM socios WHERE nombre LIKE '%" + valor + "%'";
+                String sql = "SELECT * FROM socios WHERE rut LIKE '%" + valor + "%'";
                 ps = con.prepareStatement(sql);
             }
             rs = ps.executeQuery();
             while (rs.next()) {
-                Socios est = new Socios();
-                est.setId(rs.getInt("id"));
-                est.setRut(rs.getString("rut"));
-                est.setEmail(rs.getString("email"));
-                est.setNombre(rs.getString("nombre"));
-                est.setTelefono(rs.getString("telefono"));
-                est.setDireccion(rs.getString("direccion"));
-                est.setNacimiento(rs.getString("nacimiento"));
-                lista.add(est);
+                Socios soc = new Socios();
+                soc.setId(rs.getInt("id"));
+                soc.setRut(rs.getString("rut"));
+                soc.setEmail(rs.getString("email"));
+                soc.setNombre(rs.getString("nombre"));
+                soc.setTelefono(rs.getString("telefono"));
+                soc.setDireccion(rs.getString("direccion"));
+                soc.setNacimiento(rs.getString("nacimiento"));
+                lista.add(soc);
             }
         } catch (SQLException e) {
             System.out.println(e.toString());
@@ -131,5 +133,35 @@ public class SociosDao {
         return validacion;
     }
     
+    public String formatearRUT(String rut) {
+
+        int cont = 0;
+        String format;
+        rut = rut.replace(".", "");
+        rut = rut.replace("-", "");
+        format = "-" + rut.substring(rut.length() - 1);
+        for (int i = rut.length() - 2; i >= 0; i--) {
+            format = rut.substring(i, i + 1) + format;
+            cont++;
+            if (cont == 3 && i != 0) {
+                format = "." + format;
+                cont = 0;
+            }
+        }
+        return format;
+}
+
+
+    private static final String EMAIL_REGEX = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
+
+    public static boolean emailValidator(String email) {
+        if (email == null) {
+            return false;
+        }
+
+        Matcher matcher = EMAIL_PATTERN.matcher(email);
+        return matcher.matches();
+    }
 
 }
