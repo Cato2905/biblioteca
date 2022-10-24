@@ -19,16 +19,20 @@ public class SociosDao {
     ResultSet rs;
 
     public boolean registrar(Socios est) {
-        String sql = "INSERT INTO socios (rut, email, nombre, telefono, direccion,nacimiento) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO socios (rut, email, nombre, apellido_pat, apellido_mat, telefono, direccion, comuna, nacimiento, contrasena) VALUES (?,?,?,?,?,?,?,?,?,?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, est.getRut());
             ps.setString(2, est.getEmail());
             ps.setString(3, est.getNombre());
-            ps.setString(4, est.getTelefono());
-            ps.setString(5, est.getDireccion());
-            ps.setString(6, est.getNacimiento());
+            ps.setString(4, est.getApellidoPat());
+            ps.setString(5, est.getApellidoMat());
+            ps.setString(6, est.getTelefono());
+            ps.setString(7, est.getDireccion());
+            ps.setString(8, est.getComuna());
+            ps.setString(9, est.getNacimiento());
+            ps.setString(10, est.getContrasena());
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -39,17 +43,21 @@ public class SociosDao {
 
     public boolean actualizar(Socios est) {
         boolean res;
-        String sql = "UPDATE socios SET rut=?, email=?, nombre=?, telefono=?, direccion=?, nacimiento=? WHERE id = ?";
+        String sql = "UPDATE socios SET rut=?, email=?, nombre=?, apellido_pat=?, apelldio_mat=? telefono=?, direccion=?, comuna=?, nacimiento=?, contrasena=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, est.getRut());
             ps.setString(2, est.getEmail());
             ps.setString(3, est.getNombre());
-            ps.setString(4, est.getTelefono());
-            ps.setString(5, est.getDireccion());
-            ps.setString(6, est.getNacimiento());
-            ps.setInt(7, est.getId());
+            ps.setString(4, est.getApellidoPat());
+            ps.setString(5, est.getApellidoMat());
+            ps.setString(6, est.getTelefono());
+            ps.setString(7, est.getDireccion());
+            ps.setString(8, est.getComuna());
+            ps.setString(9, est.getNacimiento());
+            ps.setString(10, est.getContrasena());
+            ps.setInt(11, est.getId());
             ps.execute();
             res = true;
         } catch (SQLException ex) {
@@ -77,9 +85,13 @@ public class SociosDao {
                 soc.setRut(rs.getString("rut"));
                 soc.setEmail(rs.getString("email"));
                 soc.setNombre(rs.getString("nombre"));
+                soc.setApellidoPat(rs.getString("apellido_pat"));
+                soc.setApellidoMat(rs.getString("apellido_mat"));
                 soc.setTelefono(rs.getString("telefono"));
                 soc.setDireccion(rs.getString("direccion"));
+                soc.setComuna(rs.getString("comuna"));
                 soc.setNacimiento(rs.getString("nacimiento"));
+                soc.setContrasena(rs.getString("contrasena"));
                 lista.add(soc);
             }
         } catch (SQLException e) {
@@ -108,6 +120,27 @@ public class SociosDao {
         }
     }
 
+    static public String formatear(String rut) {
+        int cont = 0;
+        String format;
+        if (rut.length() == 0) {
+            return "";
+        } else {
+            rut = rut.replace(".", "");
+            rut = rut.replace("-", "");
+            format = "-" + rut.substring(rut.length() - 1);
+            for (int i = rut.length() - 2; i >= 0; i--) {
+                format = rut.substring(i, i + 1) + format;
+                cont++;
+                if (cont == 3 && i != 0) {
+                    format = "." + format;
+                    cont = 0;
+                }
+            }
+            return format;
+        }
+    }
+
     public static boolean validarRut(String rut) {
 
         boolean validacion = false;
@@ -132,25 +165,6 @@ public class SociosDao {
         }
         return validacion;
     }
-    
-    public String formatearRUT(String rut) {
-
-        int cont = 0;
-        String format;
-        rut = rut.replace(".", "");
-        rut = rut.replace("-", "");
-        format = "-" + rut.substring(rut.length() - 1);
-        for (int i = rut.length() - 2; i >= 0; i--) {
-            format = rut.substring(i, i + 1) + format;
-            cont++;
-            if (cont == 3 && i != 0) {
-                format = "." + format;
-                cont = 0;
-            }
-        }
-        return format;
-}
-
 
     private static final String EMAIL_REGEX = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
