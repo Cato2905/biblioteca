@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 
 public class SociosDao {
 
@@ -43,7 +42,7 @@ public class SociosDao {
 
     public boolean actualizar(Socios est) {
         boolean res;
-        String sql = "UPDATE socios SET rut=?, email=?, nombre=?, apellido_pat=?, apelldio_mat=? telefono=?, direccion=?, comuna=?, nacimiento=?, contrasena=? WHERE id = ?";
+        String sql = "UPDATE socios SET rut=?, email=?, nombre=?, apellido_pat=?, apellido_mat=?, telefono=?, direccion=?, comuna=?, nacimiento=?, contrasena=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -92,6 +91,7 @@ public class SociosDao {
                 soc.setComuna(rs.getString("comuna"));
                 soc.setNacimiento(rs.getString("nacimiento"));
                 soc.setContrasena(rs.getString("contrasena"));
+                soc.setEstadoSoc(rs.getInt("estadoSoc"));
                 lista.add(soc);
             }
         } catch (SQLException e) {
@@ -102,21 +102,40 @@ public class SociosDao {
 
     public boolean eliminar(int id) {
 
-        String sql = "DELETE FROM socios WHERE id = ?";
+        boolean res;
+        String sql = "UPDATE socios SET estadoSoc=? WHERE id = ?";
+        con = cn.getConnection();
+        res = true;
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, 0);
+            ps.setInt(2, id);
             ps.execute();
-            return true;
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-            return false;
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e.toString());
-            }
+            return res;
+
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            res = false;
+            return res;
+        }
+    }
+
+    public boolean recuperar(int id) {
+
+        boolean res;
+        String sql = "UPDATE socios SET estadoSoc=? WHERE id = ?";
+        con = cn.getConnection();
+        res = true;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, 1);
+            ps.setInt(2, id);
+            ps.execute();
+            return res;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            res = false;
+            return res;
         }
     }
 
@@ -159,7 +178,6 @@ public class SociosDao {
             if (dv == (char) (s != 0 ? s + 47 : 75)) {
                 validacion = true;
             }
-
         } catch (java.lang.NumberFormatException e) {
         } catch (Exception e) {
         }

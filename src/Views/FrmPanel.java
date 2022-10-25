@@ -189,11 +189,11 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         btnRegSocio = new javax.swing.JButton();
-        btnEliEst = new javax.swing.JButton();
+        btnEliSoc = new javax.swing.JButton();
         txtIdEst = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        btnNuevoEst = new javax.swing.JButton();
+        btnNuevoSoc = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
         jLabel38 = new javax.swing.JLabel();
@@ -204,6 +204,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel50 = new javax.swing.JLabel();
         txtComuna = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
+        btnEliSoc1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblSocios = new javax.swing.JTable();
         jLabel31 = new javax.swing.JLabel();
@@ -1095,12 +1096,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         jPanel12.setBackground(new java.awt.Color(204, 204, 204));
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Socio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
-        txtRut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRutActionPerformed(evt);
-            }
-        });
-
         jLabel16.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel16.setText("Rut");
 
@@ -1125,21 +1120,21 @@ public final class FrmPanel extends javax.swing.JFrame {
             }
         });
 
-        btnEliEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
-        btnEliEst.setText("Eliminar");
-        btnEliEst.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnEliEst.addActionListener(new java.awt.event.ActionListener() {
+        btnEliSoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
+        btnEliSoc.setText("Eliminar");
+        btnEliSoc.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEliSoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliEstActionPerformed(evt);
+                btnEliSocActionPerformed(evt);
             }
         });
 
-        btnNuevoEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
-        btnNuevoEst.setText("Nuevo");
-        btnNuevoEst.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnNuevoEst.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevoSoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
+        btnNuevoSoc.setText("Nuevo");
+        btnNuevoSoc.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnNuevoSoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoEstActionPerformed(evt);
+                btnNuevoSocActionPerformed(evt);
             }
         });
 
@@ -1155,14 +1150,17 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel50.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel50.setText("Apellido Materno");
 
-        txtComuna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtComunaActionPerformed(evt);
-            }
-        });
-
         jLabel51.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel51.setText("Comuna");
+
+        btnEliSoc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
+        btnEliSoc1.setText("Eliminar");
+        btnEliSoc1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEliSoc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliSoc1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1201,23 +1199,29 @@ public final class FrmPanel extends javax.swing.JFrame {
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(btnRegSocio)
                         .addGap(43, 43, 43)
-                        .addComponent(btnNuevoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnNuevoSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliEst)
-                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel51)
-                    .addComponent(txtComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                    .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel38))
-                        .addGap(94, 94, 94))
-                    .addComponent(txtNacimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtContrasena, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel51)
+                            .addComponent(txtComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jLabel38))
+                                .addGap(94, 94, 94))
+                            .addComponent(txtNacimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContrasena, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(btnEliSoc)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliSoc1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
@@ -1260,9 +1264,10 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addComponent(txtComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEliEst, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNuevoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnEliSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNuevoSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliSoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1297,17 +1302,15 @@ public final class FrmPanel extends javax.swing.JFrame {
         jScrollPane5.setViewportView(tblSocios);
         if (tblSocios.getColumnModel().getColumnCount() > 0) {
             tblSocios.getColumnModel().getColumn(0).setMaxWidth(70);
+            tblSocios.getColumnModel().getColumn(10).setMinWidth(0);
+            tblSocios.getColumnModel().getColumn(10).setPreferredWidth(0);
+            tblSocios.getColumnModel().getColumn(10).setMaxWidth(0);
         }
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         jLabel31.setText("Buscar");
 
         txtBuscarSoc.setToolTipText("");
-        txtBuscarSoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarSocActionPerformed(evt);
-            }
-        });
         txtBuscarSoc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarSocKeyReleased(evt);
@@ -1342,7 +1345,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addComponent(txtBuscarSoc)
                         .addGap(5, 5, 5)))
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Socios", jPanel11);
@@ -1385,11 +1388,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         });
 
         cbxSocio.setEditable(true);
-        cbxSocio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxSocioActionPerformed(evt);
-            }
-        });
 
         cbxLibros.setEditable(true);
         cbxLibros.addItemListener(new java.awt.event.ItemListener() {
@@ -1397,18 +1395,8 @@ public final class FrmPanel extends javax.swing.JFrame {
                 cbxLibrosItemStateChanged(evt);
             }
         });
-        cbxLibros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxLibrosActionPerformed(evt);
-            }
-        });
 
         cbxLibros1.setEditable(true);
-        cbxLibros1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxLibros1ActionPerformed(evt);
-            }
-        });
 
         jLabel44.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel44.setText("Cantidad");
@@ -1418,11 +1406,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel45.setText("Libro");
 
         cbxLibros2.setEditable(true);
-        cbxLibros2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxLibros2ActionPerformed(evt);
-            }
-        });
 
         jLabel46.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel46.setText("Cantidad");
@@ -1437,22 +1420,11 @@ public final class FrmPanel extends javax.swing.JFrame {
 
         jLabel49.setText("Stock");
 
-        stock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stockActionPerformed(evt);
-            }
-        });
-
         jLabel52.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         jLabel52.setText("Rut Socio");
 
         cbxSocioRut.setEditable(true);
-        cbxSocioRut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxSocioRutActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -2052,6 +2024,10 @@ public final class FrmPanel extends javax.swing.JFrame {
         //txtNacimiento.setDate(tblSocios.getValueAt(fila, 6).toString());
         txtContrasena.setText(tblSocios.getValueAt(fila, 10).toString());
         imgeditar(btnRegSocio);
+
+        if (rootPaneCheckingEnabled) {
+
+        }
     }//GEN-LAST:event_tblSociosMouseClicked
 
     private void tblDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocumentoMouseClicked
@@ -2144,7 +2120,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_MenuContactosActionPerformed
 
-    private void btnEliEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliEstActionPerformed
+    private void btnEliSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliSocActionPerformed
         if (txtIdEst.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Seleccine una fila");
         } else {
@@ -2161,7 +2137,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                 imgregistrar(btnRegSocio);
             }
         }
-    }//GEN-LAST:event_btnEliEstActionPerformed
+    }//GEN-LAST:event_btnEliSocActionPerformed
 
     private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
         limpiarUsuarios();
@@ -2189,10 +2165,10 @@ public final class FrmPanel extends javax.swing.JFrame {
         imgregistrar(btnRegDocumento);
     }//GEN-LAST:event_btnNuevoDocumentoActionPerformed
 
-    private void btnNuevoEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoEstActionPerformed
+    private void btnNuevoSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoSocActionPerformed
         limpiarSocios();
         imgregistrar(btnRegSocio);
-    }//GEN-LAST:event_btnNuevoEstActionPerformed
+    }//GEN-LAST:event_btnNuevoSocActionPerformed
 
     private void btnElUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElUserActionPerformed
         if (txtIdUser.getText().equals("")) {
@@ -2219,7 +2195,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         } else {
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro eliminar: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (pregunta == 0) {
-                ;
 
                 if (editorialDao.eliminar(Integer.parseInt(txtIdEditorial.getText()))) {
                     LimpiarTable();
@@ -2445,52 +2420,32 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbxDocumentoItemStateChanged
 
-    private void txtRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutActionPerformed
-
-    }//GEN-LAST:event_txtRutActionPerformed
-
-    private void cbxLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibrosActionPerformed
-
-    }//GEN-LAST:event_cbxLibrosActionPerformed
-
-    private void stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockActionPerformed
-
-    }//GEN-LAST:event_stockActionPerformed
-
-    private void cbxLibros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibros1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxLibros1ActionPerformed
-
-    private void cbxLibros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibros2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxLibros2ActionPerformed
-
     private void cbxLibrosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxLibrosItemStateChanged
 
     }//GEN-LAST:event_cbxLibrosItemStateChanged
 
-    private void txtComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComunaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtComunaActionPerformed
-
-    private void cbxSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSocioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxSocioActionPerformed
-
-    private void cbxSocioRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSocioRutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxSocioRutActionPerformed
-
-    private void txtBuscarSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarSocActionPerformed
-
-    }//GEN-LAST:event_txtBuscarSocActionPerformed
-
     private void MenuSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuSocActionPerformed
-        tblSocios.getColumnModel().getColumn(11).setMaxWidth(0);
-        tblSocios.getColumnModel().getColumn(11).setMinWidth(0);
-        tblSocios.getTableHeader().getColumnModel().getColumn(11).setMaxWidth(0);
-        tblSocios.getTableHeader().getColumnModel().getColumn(11).setMinWidth(0);
+
     }//GEN-LAST:event_MenuSocActionPerformed
+
+    private void btnEliSoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliSoc1ActionPerformed
+        if (txtIdEst.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Seleccine una fila");
+        } else {
+            int pregunta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro eliminar: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            if (pregunta == 0) {
+                if (sociosDao.recuperar(Integer.parseInt(txtIdEst.getText()))) {
+                    LimpiarTable();
+                    limpiarSocios();
+                    ListarSocios();
+                    JOptionPane.showMessageDialog(null, "Eliminado");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al Eliminar");
+                }
+                imgregistrar(btnRegSocio);
+            }
+        }
+    }//GEN-LAST:event_btnEliSoc1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2530,15 +2485,16 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JButton btnElUser;
     private javax.swing.JButton btnEliDocumento;
     private javax.swing.JButton btnEliEditorial;
-    private javax.swing.JButton btnEliEst;
     private javax.swing.JButton btnEliLibro;
+    private javax.swing.JButton btnEliSoc;
+    private javax.swing.JButton btnEliSoc1;
     private javax.swing.JButton btnModificarEmpresa;
     private javax.swing.JButton btnNuevoAutor;
     private javax.swing.JButton btnNuevoDocumento;
     private javax.swing.JButton btnNuevoEditorial;
-    private javax.swing.JButton btnNuevoEst;
     private javax.swing.JButton btnNuevoLibro;
     private javax.swing.JButton btnNuevoPrestamo;
+    private javax.swing.JButton btnNuevoSoc;
     private javax.swing.JButton btnNuevoUsuario;
     private javax.swing.JButton btnPrestar;
     private javax.swing.JButton btnRegAutor;
@@ -3093,6 +3049,12 @@ public final class FrmPanel extends javax.swing.JFrame {
     }
 
     private void imgeditar(JButton boton) {
+        boton.setText("Modificar");
+        ImageIcon editar = new ImageIcon(getClass().getResource("/img/editar.png"));
+        boton.setIcon(editar);
+    }
+
+    private void imgeditar2(JButton boton) {
         boton.setText("Modificar");
         ImageIcon editar = new ImageIcon(getClass().getResource("/img/editar.png"));
         boton.setIcon(editar);
