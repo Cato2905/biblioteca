@@ -14,11 +14,12 @@ public class Libros {
     private String editorial_nombre;
     private String documento_nombre;
     private String resumen;
+    private int estadoLib;
 
     public Libros() {
     }
 
-    public Libros(int id, String titulo, int autor, int editorial, int documento, int cantidad, String isbn, String codigo, String autor_nombre, String editorial_nombre, String documento_nombre, String resumen) {
+    public Libros(int id, String titulo, int autor, int editorial, int documento, int cantidad, String isbn, String codigo, String autor_nombre, String editorial_nombre, String documento_nombre, String resumen, int estadoLib) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -31,6 +32,7 @@ public class Libros {
         this.editorial_nombre = editorial_nombre;
         this.documento_nombre = documento_nombre;
         this.resumen = resumen;
+        this.estadoLib = estadoLib;
     }
 
     public int getId() {
@@ -127,6 +129,14 @@ public class Libros {
 
     public void setResumen(String resumen) {
         this.resumen = resumen;
+    }
+
+    public int getEstadoLib() {
+        return estadoLib;
+    }
+
+    public void setEstadoLib(int estadoLib) {
+        this.estadoLib = estadoLib;
     }
 
     

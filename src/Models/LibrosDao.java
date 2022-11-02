@@ -87,6 +87,7 @@ public class LibrosDao {
                 lb.setEditorial_nombre(rs.getString("editorial"));
                 lb.setDocumento_nombre(rs.getString("documento"));
                 lb.setResumen(rs.getString("resumen"));
+                lb.setEstadoLib(rs.getInt("estadoLib"));
                 lista.add(lb);
             }
         } catch (SQLException e) {
@@ -95,22 +96,42 @@ public class LibrosDao {
         return lista;
     }
 
-    public boolean eliminar(int id) {
-        String sql = "DELETE FROM libros WHERE id = ?";
+     public boolean eliminar(int id) {
+
+        boolean res;
+        String sql = "UPDATE libros SET estadoLib=? WHERE id = ?";
+        con = cn.getConnection();
+        res = true;
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, 0);
+            ps.setInt(2, id);
             ps.execute();
-            return true;
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-            return false;
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e.toString());
-            }
+            return res;
+
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            res = false;
+            return res;
+        }
+    }
+
+    public boolean recuperar(int id) {
+
+        boolean res;
+        String sql = "UPDATE libros SET estadoLib=? WHERE id = ?";
+        con = cn.getConnection();
+        res = true;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, 1);
+            ps.setInt(2, id);
+            ps.execute();
+            return res;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            res = false;
+            return res;
         }
     }
 
