@@ -1759,7 +1759,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                                          <Component id="txtIdEst" min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Component id="txtIdSoc" min="-2" pref="20" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="txtRut" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                       <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1837,7 +1837,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtIdEst" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIdSoc" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1965,7 +1965,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliSocActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtIdEst">
+                <Component class="javax.swing.JTextField" name="txtIdSoc">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDireccion">
                 </Component>

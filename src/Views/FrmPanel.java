@@ -18,11 +18,14 @@ import Models.Usuarios;
 import Models.UsuariosDao;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -64,7 +67,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdAutor.setVisible(false);
         txtIdEditorial.setVisible(false);
         txtIdEmpresa.setVisible(false);
-        txtIdEst.setVisible(false);
+        txtIdSoc.setVisible(false);
         txtIdLibro.setVisible(false);
         txtIdDocumento.setVisible(false);
         txtIdUser.setVisible(false);
@@ -191,7 +194,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         btnRegSocio = new javax.swing.JButton();
         btnEliSoc = new javax.swing.JButton();
-        txtIdEst = new javax.swing.JTextField();
+        txtIdSoc = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         btnNuevoSoc = new javax.swing.JButton();
@@ -1196,7 +1199,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addGap(54, 54, 54)
-                                .addComponent(txtIdEst, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtIdSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1253,7 +1256,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(txtIdEst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdSoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel29)
                     .addComponent(jLabel50)
@@ -2024,7 +2027,7 @@ public final class FrmPanel extends javax.swing.JFrame {
 
     private void tblSociosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSociosMouseClicked
         int fila = tblSocios.rowAtPoint(evt.getPoint());
-        txtIdEst.setText(tblSocios.getValueAt(fila, 0).toString());
+        txtIdSoc.setText(tblSocios.getValueAt(fila, 0).toString());
         txtRut.setText(tblSocios.getValueAt(fila, 1).toString());
         txtEmail.setText(tblSocios.getValueAt(fila, 2).toString());
         txtSocio.setText(tblSocios.getValueAt(fila, 3).toString());
@@ -2033,7 +2036,20 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtTelefono.setText(tblSocios.getValueAt(fila, 6).toString());
         txtDireccion.setText(tblSocios.getValueAt(fila, 7).toString());
         txtComuna.setText(tblSocios.getValueAt(fila, 8).toString());
-        //txtNacimiento.setDate(tblSocios.getValueAt(fila, 6).toString());
+//        try {
+//
+//            String pattern = "dd-MM-yyyy";
+//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+//            Date date = simpleDateFormat.parse((String) tblSocios.getValueAt(fila, 9));
+//            txtNacimiento.setDateFormatString(pattern);
+//            txtNacimiento.setDate(date);
+////            Date date = new SimpleDateFormat("dd/MM/yyyy").parse((String)tblSocios.getValueAt(fila, 9).toString());
+////            txtNacimiento.setDate(date);
+//        } catch (ParseException ex) {
+//            Logger.getLogger(FrmPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+
+        //txtNacimiento.setDate(tblSocios.getValueAt(fila, 9).toString().trim());
         txtContrasena.setText(tblSocios.getValueAt(fila, 10).toString());
         imgeditar(btnRegSocio);
 
@@ -2133,12 +2149,12 @@ public final class FrmPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuContactosActionPerformed
 
     private void btnEliSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliSocActionPerformed
-        if (txtIdEst.getText().equals("")) {
+        if (txtIdSoc.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Seleccine una fila");
         } else {
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro eliminar: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (pregunta == 0) {
-                if (sociosDao.eliminar(Integer.parseInt(txtIdEst.getText()))) {
+                if (sociosDao.eliminar(Integer.parseInt(txtIdSoc.getText()))) {
                     LimpiarTable();
                     limpiarSocios();
                     ListarSocios();
@@ -2441,12 +2457,12 @@ public final class FrmPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuSocActionPerformed
 
     private void btnRecSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecSocActionPerformed
-        if (txtIdEst.getText().equals("")) {
+        if (txtIdSoc.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Seleccine una fila");
         } else {
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro recuperar: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (pregunta == 0) {
-                if (sociosDao.recuperar(Integer.parseInt(txtIdEst.getText()))) {
+                if (sociosDao.recuperar(Integer.parseInt(txtIdSoc.getText()))) {
                     LimpiarTable();
                     limpiarSocios();
                     ListarSocios();
@@ -2662,12 +2678,12 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdDocumento;
     private javax.swing.JTextField txtIdEditorial;
     private javax.swing.JTextField txtIdEmpresa;
-    private javax.swing.JTextField txtIdEst;
     private javax.swing.JTextField txtIdLAutor;
     private javax.swing.JTextField txtIdLEdi;
     private javax.swing.JTextField txtIdLMat;
     private javax.swing.JTextField txtIdLibro;
     private javax.swing.JTextField txtIdPrestamo;
+    private javax.swing.JTextField txtIdSoc;
     private javax.swing.JTextField txtIdUser;
     private javax.swing.JTextField txtIsbn;
     private com.toedter.calendar.JDateChooser txtNacimiento;
@@ -2800,7 +2816,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     }
 
     private void registrarSocio() {
-        String id = txtIdEst.getText();
+        String id = txtIdSoc.getText();
         String rut = txtRut.getText();
         String email = txtEmail.getText();
         String nombre = txtSocio.getText();
@@ -2823,6 +2839,16 @@ public final class FrmPanel extends javax.swing.JFrame {
                 return;
 
             }
+            
+            
+            if (sociosDao.verificarExistente(rut)==true) {
+                JOptionPane.showMessageDialog(null, " Rut repetido");
+                return;
+            } else {
+                JOptionPane.showMessageDialog(null, " paso");
+            }
+
+            
             if (SociosDao.emailValidator(email)) {
 
             } else {
@@ -2838,7 +2864,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             socios.setTelefono(telefono);
             socios.setDireccion(direccion);
             socios.setComuna(comuna);
-            socios.setNacimiento(new SimpleDateFormat("dd/mm/yyyy").format(txtNacimiento.getDate()));
+            socios.setNacimiento(new SimpleDateFormat("dd/MM/yyyy").format(txtNacimiento.getDate()));
             socios.setContrasena(contrasena);
 
             if (id.equals("")) {
@@ -3138,7 +3164,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     }
 
     private void limpiarSocios() {
-        txtIdEst.setText("");
+        txtIdSoc.setText("");
         txtSocio.setText("");
         txtRut.setText("");
         txtEmail.setText("");

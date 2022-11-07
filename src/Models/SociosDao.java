@@ -5,10 +5,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 public class SociosDao {
 
@@ -42,7 +44,8 @@ public class SociosDao {
 
     public boolean actualizar(Socios est) {
         boolean res;
-        String sql = "UPDATE socios SET rut=?, email=?, nombre=?, apellido_pat=?, apellido_mat=?, telefono=?, direccion=?, comuna=?, nacimiento=?, contrasena=? WHERE id = ?";
+        String sql = "UPDATE socios Set rut=?, email=?, nombre=?, apellido_pat=?, apellido_mat=?, telefono=?, direccion=?, comuna=?, nacimiento=?, contrasena=? WHERE id = ?";
+        //  String sql = "UPDATE socios SET rut=?, email=?, nombre=?, apellido_pat=?, apellido_mat=?, telefono=?, direccion=?, comuna=?, nacimiento=?, contrasena=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -196,4 +199,20 @@ public class SociosDao {
         return matcher.matches();
     }
 
+    public boolean verificarExistente(String rut) {
+
+        List<Socios> lista = Listar("");
+        for (int i = 0; i < lista.size(); i++) {
+            String rutVeri = lista.get(i).getRut();
+            if (rutVeri.equals(rut)) {
+                JOptionPane.showMessageDialog(null, " dentro");
+                return false;
+            } else {
+                JOptionPane.showMessageDialog(null, " feura");
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
