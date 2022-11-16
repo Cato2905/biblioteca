@@ -25,7 +25,7 @@ public class LibrosDao {
             ps.setInt(2, lb.getAutor());
             ps.setInt(3, lb.getEditorial());
             ps.setInt(4, lb.getDocumento());
-            ps.setInt(5, lb.getCantidad());
+            ps.setInt(5, lb.getCantidadTotal());
             ps.setString(6, lb.getIsbn());
             ps.setString(7, lb.getCodigo());
             ps.setString(8, lb.getResumen());
@@ -47,7 +47,7 @@ public class LibrosDao {
             ps.setInt(2, lb.getAutor());
             ps.setInt(3, lb.getEditorial());
             ps.setInt(4, lb.getDocumento());
-            ps.setInt(5, lb.getCantidad());
+            ps.setInt(5, lb.getCantidadTotal());
             ps.setString(6, lb.getIsbn());
             ps.setString(7, lb.getCodigo());
             ps.setString(8, lb.getResumen());
@@ -80,7 +80,7 @@ public class LibrosDao {
                 lb.setAutor(rs.getInt("id_autor"));
                 lb.setEditorial(rs.getInt("id_editorial"));
                 lb.setDocumento(rs.getInt("id_documento"));
-                lb.setCantidad(rs.getInt("cantidad"));
+                lb.setCantidadTotal(rs.getInt("cantidad"));
                 lb.setIsbn(rs.getString("isbn"));
                 lb.setCodigo(rs.getString("codigo"));
                 lb.setAutor_nombre(rs.getString("autor"));
@@ -88,6 +88,7 @@ public class LibrosDao {
                 lb.setDocumento_nombre(rs.getString("documento"));
                 lb.setResumen(rs.getString("resumen"));
                 lb.setEstadoLib(rs.getInt("estadoLib"));
+                lb.setStock(rs.getInt("stock"));
                 lista.add(lb);
             }
         } catch (SQLException e) {
@@ -182,4 +183,6 @@ public class LibrosDao {
         }
         return lb;
     }
+    
+    
 }

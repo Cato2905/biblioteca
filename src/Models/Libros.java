@@ -7,25 +7,26 @@ public class Libros {
     private int autor;
     private int editorial;
     private int documento;
-    private int cantidad;
-    private String isbn;
+    private int cantidadTotal;
+;    private String isbn;
     private String codigo;
     private String autor_nombre;
     private String editorial_nombre;
     private String documento_nombre;
     private String resumen;
     private int estadoLib;
+    private int stock;
 
     public Libros() {
     }
 
-    public Libros(int id, String titulo, int autor, int editorial, int documento, int cantidad, String isbn, String codigo, String autor_nombre, String editorial_nombre, String documento_nombre, String resumen, int estadoLib) {
+    public Libros(int id, String titulo, int autor, int editorial, int documento, int cantidadTotal, String isbn, String codigo, String autor_nombre, String editorial_nombre, String documento_nombre, String resumen, int estadoLib, int stock) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.editorial = editorial;
         this.documento = documento;
-        this.cantidad = cantidad;
+        this.cantidadTotal = cantidadTotal;
         this.isbn = isbn;
         this.codigo = codigo;
         this.autor_nombre = autor_nombre;
@@ -33,6 +34,7 @@ public class Libros {
         this.documento_nombre = documento_nombre;
         this.resumen = resumen;
         this.estadoLib = estadoLib;
+        this.stock = stock;
     }
 
     public int getId() {
@@ -75,12 +77,12 @@ public class Libros {
         this.documento = documento;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getCantidadTotal() {
+        return cantidadTotal;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setCantidadTotal(int cantidadTotal) {
+        this.cantidadTotal = cantidadTotal;
     }
 
     public String getIsbn() {
@@ -137,6 +139,14 @@ public class Libros {
 
     public void setEstadoLib(int estadoLib) {
         this.estadoLib = estadoLib;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     

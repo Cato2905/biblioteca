@@ -205,14 +205,14 @@ public class SociosDao {
         for (int i = 0; i < lista.size(); i++) {
             String rutVeri = lista.get(i).getRut();
             if (rutVeri.equals(rut)) {
-                JOptionPane.showMessageDialog(null, " dentro");
+//                JOptionPane.showMessageDialog(null, " false");
                 return false;
             } else {
-                JOptionPane.showMessageDialog(null, " feura");
-                return true;
+//                JOptionPane.showMessageDialog(null, " true");
+                
             }
         }
 
-        return false;
+        return true;
     }
 }
