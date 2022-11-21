@@ -223,10 +223,10 @@ public final class FrmPanel extends javax.swing.JFrame {
         cbxSocio = new javax.swing.JComboBox<>();
         cbxLibros = new javax.swing.JComboBox<>();
         txtFechaDev = new com.toedter.calendar.JDateChooser();
-        txtIdPrestamo = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
         txtStock = new javax.swing.JTextField();
         txtIdLibPrest = new javax.swing.JTextField();
+        txtIdPrestamo = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblPrestamo = new javax.swing.JTable();
         jLabel30 = new javax.swing.JLabel();
@@ -1417,10 +1417,9 @@ public final class FrmPanel extends javax.swing.JFrame {
                 cbxLibrosItemStateChanged(evt);
             }
         });
-
-        txtIdPrestamo.addActionListener(new java.awt.event.ActionListener() {
+        cbxLibros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdPrestamoActionPerformed(evt);
+                cbxLibrosActionPerformed(evt);
             }
         });
 
@@ -1429,6 +1428,12 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdLibPrest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdLibPrestActionPerformed(evt);
+            }
+        });
+
+        txtIdPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdPrestamoActionPerformed(evt);
             }
         });
 
@@ -1465,9 +1470,9 @@ public final class FrmPanel extends javax.swing.JFrame {
                             .addGroup(jPanel16Layout.createSequentialGroup()
                                 .addGap(251, 251, 251)
                                 .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(230, 230, 230)
+                                .addGap(275, 275, 275)
                                 .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)
+                                .addGap(18, 18, 18)
                                 .addComponent(txtIdLibPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel16Layout.createSequentialGroup()
                                 .addGap(158, 158, 158)
@@ -1508,9 +1513,9 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdLibPrest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdLibPrest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -2268,15 +2273,28 @@ public final class FrmPanel extends javax.swing.JFrame {
                 prestamo.setLibro(lb.getId());
                 prestamo.setCantidad(Integer.parseInt(txtCantPrestamo.getText()));
 
-                
+                int id;
+                id = lb.getId();
+
+                int cantidad;
+                cantidad = Integer.parseInt(txtCantPrestamo.getText());
+
+                int cantidadTotal;
+                cantidadTotal = lb.getCantidadTotal();
+
+                int actual;
+                actual = cantidadTotal - cantidad;
+
                 Date fecha = new Date();
                 prestamo.setFecha_prestamo(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
                 prestamo.setFecha_dev(new SimpleDateFormat("dd/MM/yyyy").format(txtFechaDev.getDate()));
                 if (prestamoDao.registrar(prestamo)) {
+                    libroDao.actualizarStock(id, actual);
                     LimpiarTable();
                     limpiarPrestamo();
                     ListarPrestamo();
                     JOptionPane.showMessageDialog(null, "Prestamo Registrado");
+                    JOptionPane.showMessageDialog(null, actual + "           aux");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
@@ -2286,6 +2304,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Recibir Libro: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (pregunta == 0) {
                 if (prestamoDao.actualizar(Integer.parseInt(txtIdPrestamo.getText()))) {
+
                     LimpiarTable();
                     limpiarPrestamo();
                     ListarPrestamo();
@@ -2309,8 +2328,23 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtCantPrestamo.setText(tblPrestamo.getValueAt(fila, 3).toString());
         txtIdLibPrest.setText(tblPrestamo.getValueAt(fila, 7).toString());
         cbxLibros.setSelectedItem(tblPrestamo.getValueAt(fila, 2).toString());
-       
         btnPrestar.setText("Devolver");
+        
+        
+        
+//        txtIdLibro.setText(tblLibros.getValueAt(fila, 0).toString());
+//        txtTitulo.setText(tblLibros.getValueAt(fila, 1).toString());
+//        txtCantLibro.setText(tblLibros.getValueAt(fila, 2).toString());
+//        txtIsbn.setText(tblLibros.getValueAt(fila, 3).toString());
+//        txtCodBarra.setText(tblLibros.getValueAt(fila, 4).toString());
+//        txtIdLEdi.setText(tblLibros.getValueAt(fila, 5).toString());
+//        cbxEditorial.setSelectedItem(tblLibros.getValueAt(fila, 6).toString());
+//        txtIdLAutor.setText(tblLibros.getValueAt(fila, 7).toString());
+//        cbxAutor.setSelectedItem(tblLibros.getValueAt(fila, 8).toString());
+//        txtIdLMat.setText(tblLibros.getValueAt(fila, 9).toString());
+//        cbxDocumento.setSelectedItem(tblLibros.getValueAt(fila, 10).toString());
+//        txtResumen.setText(tblLibros.getValueAt(fila, 11).toString());
+//        imgeditar(btnRegLibro);
     }//GEN-LAST:event_tblPrestamoMouseClicked
 
     private void txtBuscarUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarUserKeyReleased
@@ -2446,13 +2480,17 @@ public final class FrmPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtTelefonoKeyTyped
 
-    private void txtIdPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPrestamoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdPrestamoActionPerformed
-
     private void txtIdLibPrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdLibPrestActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdLibPrestActionPerformed
+
+    private void cbxLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxLibrosActionPerformed
+
+    private void txtIdPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPrestamoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdPrestamoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2869,7 +2907,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                 String apellidoP = lista.get(i).getApellidoPat();
                 String apellidoM = lista.get(i).getApellidoMat();
                 String rut = lista.get(i).getRut();
-                cbxSocio.addItem(new Combo(id, nombre + " " + apellidoP + " " + apellidoM + " | Rut: " + rut));
+                cbxSocio.addItem(new Combo(id, nombre + " " + apellidoP + " " + apellidoM + " | Rut: " + rut, estadoSoc));
             }
 
         }
@@ -2879,10 +2917,11 @@ public final class FrmPanel extends javax.swing.JFrame {
         List<Libros> lista = libroDao.Listar("");
         for (int i = 0; i < lista.size(); i++) {
             int id = lista.get(i).getId();
+            int stock = lista.get(i).getStock();
+            int cantidadTotal = lista.get(i).getCantidadTotal();
             String nombre = lista.get(i).getTitulo();
-            int cantidad = lista.get(i).getStock();
-            cbxLibros.addItem(new Combo(id, nombre + " | " + "Stock: " + cantidad));
 
+            cbxLibros.addItem(new Combo(id, nombre + " | " + "Stock: " + stock, stock));
         }
     }
 
@@ -3045,6 +3084,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             ob[5] = Listar.get(i).getFecha_dev();
             estado = Listar.get(i).getEstado() == 1;
             ob[6] = estado;
+
             modelo.addRow(ob);
         }
         tblPrestamo.setModel(modelo);

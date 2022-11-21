@@ -61,6 +61,23 @@ public class LibrosDao {
         return res;
     }
 
+        public boolean actualizarStock(int id, int cantidad) {
+        boolean res;
+        String sql = "UPDATE libros SET stock=? WHERE id = ?";
+        con = cn.getConnection();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, (cantidad));
+            ps.setInt(2, id);
+            ps.execute();
+            res = true;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            res = false;
+        }
+        return res;
+    }
+    
     public List Listar(String valor) {
         List<Libros> lista = new ArrayList();
         try {
@@ -117,6 +134,8 @@ public class LibrosDao {
         }
     }
 
+     
+     
     public boolean recuperar(int id) {
 
         boolean res;
@@ -184,5 +203,8 @@ public class LibrosDao {
         return lb;
     }
     
+    
+
+
     
 }

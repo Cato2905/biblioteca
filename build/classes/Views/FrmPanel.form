@@ -2274,9 +2274,9 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
                                           <Component id="btnPrestar" min="-2" pref="143" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
                                           <Component id="txtIdPrestamo" min="-2" pref="24" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="txtIdLibPrest" min="-2" pref="24" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -2333,9 +2333,9 @@
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnPrestar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="txtIdPrestamo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnNuevoPrestamo" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                               <Component id="txtIdLibPrest" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIdPrestamo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="16" max="32767" attributes="0"/>
                       </Group>
@@ -2431,17 +2431,13 @@
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbxLibrosItemStateChanged"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxLibrosActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
                   </AuxValues>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="txtFechaDev">
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtIdPrestamo">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdPrestamoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel39">
                   <Properties>
@@ -2453,6 +2449,11 @@
                 <Component class="javax.swing.JTextField" name="txtIdLibPrest">
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdLibPrestActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtIdPrestamo">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdPrestamoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
