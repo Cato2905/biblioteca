@@ -998,7 +998,7 @@
                                   <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -1038,35 +1038,38 @@
                                               <Component id="txtIdLMat" min="-2" pref="12" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="txtIdLibro" min="-2" pref="24" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="btnRegLibro" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                                      <Component id="btnNuevoLibro" min="-2" pref="120" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="btnNuevoLibro" min="-2" pref="130" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="cbxDocumento" min="-2" pref="200" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="cbxDocumento" min="-2" pref="200" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtCantLibro" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
+                                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtCantLibro" min="-2" pref="94" max="-2" attributes="0"/>
-                                          </Group>
+                                          <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
+                                          <Component id="btnRegLibro" min="-2" pref="130" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -2465,7 +2468,7 @@
                 <Component class="javax.swing.JTable" name="tblPrestamo">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="0">
+                      <Table columnCount="9" rowCount="0">
                         <Column editable="true" title="Id" type="java.lang.Object"/>
                         <Column editable="true" title="Socio" type="java.lang.Object"/>
                         <Column editable="true" title="Documento" type="java.lang.Object"/>
@@ -2474,6 +2477,7 @@
                         <Column editable="true" title="F. Devoluci&#xf3;n" type="java.lang.Object"/>
                         <Column editable="false" title="Estado" type="java.lang.Boolean"/>
                         <Column editable="true" title="IdLibPres" type="java.lang.Object"/>
+                        <Column editable="true" title="idSocPres" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -2509,6 +2513,11 @@
                           <Renderer/>
                         </Column>
                         <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>

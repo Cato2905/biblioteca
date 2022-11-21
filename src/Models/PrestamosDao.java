@@ -25,6 +25,7 @@ public class PrestamosDao {
             ps.setInt(3, pre.getCantidad());
             ps.setString(4, pre.getFecha_prestamo());
             ps.setString(5, pre.getFecha_dev());
+            
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -71,6 +72,8 @@ public class PrestamosDao {
                 pre.setFecha_prestamo(rs.getString("fecha_prestamo"));
                 pre.setFecha_dev(rs.getString("fecha_devolucion"));
                 pre.setEstado(rs.getInt("estado"));
+                pre.setLibro(rs.getInt("id_libro"));
+                pre.setSocio(rs.getInt("id_socio"));
                 int ver = pre.getEstado();
                 if (ver == 1) {
                     lista.add(pre);

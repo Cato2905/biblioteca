@@ -26,6 +26,14 @@ public class Prestamos {
         this.fecha_dev = fecha_dev;
         this.estado = estado;
     }
+    
+//                pre.setId(rs.getInt("id"));
+//                pre.setTitulo(rs.getString("l.titulo"));
+//                pre.setNombre_soc(rs.getString("nombre"));
+//                pre.setCantidad(rs.getInt("cantidad"));
+//                pre.setFecha_prestamo(rs.getString("fecha_prestamo"));
+//                pre.setFecha_dev(rs.getString("fecha_devolucion"));
+//                pre.setEstado(rs.getInt("estado"));
 
     public int getId() {
         return id;

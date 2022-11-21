@@ -790,7 +790,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 1201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 5, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -821,25 +821,27 @@ public final class FrmPanel extends javax.swing.JFrame {
                                     .addComponent(txtIdLMat, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel8Layout.createSequentialGroup()
                                         .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(142, 142, 142)
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnRegLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(283, 283, 283)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                        .addComponent(cbxDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGap(283, 283, 283)
                                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel10))
-                                        .addGap(144, 144, 144)))
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(txtCantLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel8))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                                .addComponent(cbxDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel11)
+                                                    .addComponent(jLabel10))
+                                                .addGap(144, 144, 144)))
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel12)
+                                            .addComponent(txtCantLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel8))
+                                .addGap(324, 324, 324)
+                                .addComponent(btnRegLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnRecLib, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1519,14 +1521,14 @@ public final class FrmPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Socio", "Documento", "Cantidad", "F. Prestamo", "F. Devolución", "Estado", "IdLibPres"
+                "Id", "Socio", "Documento", "Cantidad", "F. Prestamo", "F. Devolución", "Estado", "IdLibPres", "idSocPres"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, true, true, true, true, true, false, true
+                true, true, true, true, true, true, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -2281,28 +2283,42 @@ public final class FrmPanel extends javax.swing.JFrame {
                 if (prestamoDao.registrar(prestamo)) {
                     libroDao.actualizarStock(id, actual);
                     LimpiarTable();
-                    limpiarPrestamo();
                     ListarPrestamo();
+                    limpiarPrestamo();
                     JOptionPane.showMessageDialog(null, "Prestamo Registrado");
-                    JOptionPane.showMessageDialog(null, actual + "           aux");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
+                limpiarPrestamo();
                 btnPrestar.setText("Prestar");
             }
         } else {
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Recibir Libro: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (pregunta == 0) {
                 if (prestamoDao.actualizar(Integer.parseInt(txtIdPrestamo.getText()))) {
-
+                    Combo soc = (Combo) cbxSocio.getSelectedItem();
+                    prestamo.setSocio(soc.getId());
+                    Combo lb = (Combo) cbxLibros.getSelectedItem();
+                    prestamo.setLibro(lb.getId());
+                    prestamo.setCantidad(Integer.parseInt(txtCantPrestamo.getText()));
+                    int id;
+                    id = lb.getId();
+                    int cantidad;
+                    cantidad = Integer.parseInt(txtCantPrestamo.getText());
+                    int cantidadTotal;
+                    cantidadTotal = lb.getCantidadTotal();
+                    int actual;
+                    actual = cantidadTotal + cantidad;
+                    libroDao.actualizarStock(id, actual);
                     LimpiarTable();
-                    limpiarPrestamo();
                     ListarPrestamo();
+                    limpiarPrestamo();
                     JOptionPane.showMessageDialog(null, "Prestamo Devuelto");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
             }
+            limpiarPrestamo();
             btnPrestar.setText("Prestar");
         }
     }//GEN-LAST:event_btnPrestarActionPerformed
@@ -2310,6 +2326,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     private void btnNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoActionPerformed
         limpiarPrestamo();
         btnPrestar.setText("Prestar");
+
     }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
 
     private void tblPrestamoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPrestamoMouseClicked
@@ -2317,6 +2334,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdPrestamo.setText(tblPrestamo.getValueAt(fila, 0).toString());
         txtCantPrestamo.setText(tblPrestamo.getValueAt(fila, 3).toString());
         cbxLibros.setSelectedItem(tblPrestamo.getValueAt(fila, 2).toString());
+        cbxSocio.setSelectedItem(tblPrestamo.getValueAt(fila, 1).toString());
         btnPrestar.setText("Devolver");
     }//GEN-LAST:event_tblPrestamoMouseClicked
 
@@ -2454,8 +2472,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelefonoKeyTyped
 
     private void txtIdLibPrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdLibPrestActionPerformed
-        initComponents();
-        txtIdLibPrest.setVisible(false);
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtIdLibPrestActionPerformed
 
     private void cbxLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibrosActionPerformed
@@ -2785,7 +2802,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         String contrasena = txtContrasena.getText();
 
         //Verificacion de campos vacios
-        if (rut.equals("") || email.equals("") || nombre.equals("") || telefono.trim().length() == 9 || direccion.equals("")) {
+        if (rut.equals("") || email.equals("") || nombre.equals("") || direccion.equals("")) {
             JOptionPane.showMessageDialog(null, "Todo los Campos son Requeridos");
 
         } else {
@@ -2971,6 +2988,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             libro.setIsbn(isbn);
             libro.setCodigo(codigo_bar);
             libro.setResumen(res);
+            libro.setStock(Integer.parseInt(cantidad));
             if (id.equals("")) {
                 if (libroDao.registrar(libro)) {
                     JOptionPane.showMessageDialog(null, "Registro Completado");
@@ -3043,7 +3061,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     private void ListarPrestamo() {
         List<Prestamos> Listar = prestamoDao.Listar(txtBuscarPrestamo.getText());
         modelo = (DefaultTableModel) tblPrestamo.getModel();
-        Object[] ob = new Object[7];
+        Object[] ob = new Object[9];
         boolean estado;
         for (int i = 0; i < Listar.size(); i++) {
             ob[0] = Listar.get(i).getId();
@@ -3054,6 +3072,8 @@ public final class FrmPanel extends javax.swing.JFrame {
             ob[5] = Listar.get(i).getFecha_dev();
             estado = Listar.get(i).getEstado() == 1;
             ob[6] = estado;
+            ob[7] = Listar.get(i).getLibro();
+            ob[8] = Listar.get(i).getSocio();
 
             modelo.addRow(ob);
         }
@@ -3143,6 +3163,11 @@ public final class FrmPanel extends javax.swing.JFrame {
     private void limpiarPrestamo() {
         txtIdPrestamo.setText("");
         txtCantPrestamo.setText("");
-
+        cbxSocio.removeAllItems();
+        cbxLibros.removeAllItems();
+        llenarSocio();
+        llenarLibros();
+        AutoCompleteDecorator.decorate(cbxSocio);
+        AutoCompleteDecorator.decorate(cbxLibros);
     }
 }

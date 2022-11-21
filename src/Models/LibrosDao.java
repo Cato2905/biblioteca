@@ -17,7 +17,7 @@ public class LibrosDao {
     ResultSet rs;
 
     public boolean registrar(Libros lb) {
-        String sql = "INSERT INTO libros (titulo, id_autor, id_editorial, id_documento, cantidad, isbn, codigo, resumen) VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO libros (titulo, id_autor, id_editorial, id_documento, cantidad, isbn, codigo, resumen,stock) VALUES (?,?,?,?,?,?,?,?,?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -29,6 +29,7 @@ public class LibrosDao {
             ps.setString(6, lb.getIsbn());
             ps.setString(7, lb.getCodigo());
             ps.setString(8, lb.getResumen());
+            ps.setInt(9, lb.getCantidadTotal());
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -39,7 +40,7 @@ public class LibrosDao {
 
     public boolean actualizar(Libros lb) {
         boolean res;
-        String sql = "UPDATE libros SET titulo=?, id_autor=?, id_editorial=?, id_documento=?, cantidad=?, isbn=?, codigo=?, resumen=? WHERE id = ?";
+        String sql = "UPDATE libros SET titulo=?, id_autor=?, id_editorial=?, id_documento=?, cantidad=?, isbn=?, codigo=?, resumen=?, stock=? WHERE id = ?";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -51,7 +52,8 @@ public class LibrosDao {
             ps.setString(6, lb.getIsbn());
             ps.setString(7, lb.getCodigo());
             ps.setString(8, lb.getResumen());
-            ps.setInt(9, lb.getId());
+            ps.setInt(9, lb.getCantidadTotal());
+            ps.setInt(10, lb.getId());
             ps.execute();
             res = true;
         } catch (SQLException ex) {

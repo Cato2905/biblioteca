@@ -8,7 +8,7 @@ public class Libros {
     private int editorial;
     private int documento;
     private int cantidadTotal;
-;    private String isbn;
+    private String isbn;
     private String codigo;
     private String autor_nombre;
     private String editorial_nombre;
