@@ -72,6 +72,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtIdDocumento.setVisible(false);
         txtIdUser.setVisible(false);
         txtIdPrestamo.setVisible(false);
+        txtIdLibPrest.setVisible(false);
         txtIdLAutor.setVisible(false);
         txtIdLEdi.setVisible(false);
         txtIdLMat.setVisible(false);
@@ -225,8 +226,8 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtFechaDev = new com.toedter.calendar.JDateChooser();
         jLabel39 = new javax.swing.JLabel();
         txtStock = new javax.swing.JTextField();
-        txtIdLibPrest = new javax.swing.JTextField();
         txtIdPrestamo = new javax.swing.JTextField();
+        txtIdLibPrest = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblPrestamo = new javax.swing.JTable();
         jLabel30 = new javax.swing.JLabel();
@@ -1431,12 +1432,6 @@ public final class FrmPanel extends javax.swing.JFrame {
             }
         });
 
-        txtIdPrestamo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdPrestamoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
@@ -1470,9 +1465,9 @@ public final class FrmPanel extends javax.swing.JFrame {
                             .addGroup(jPanel16Layout.createSequentialGroup()
                                 .addGap(251, 251, 251)
                                 .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(275, 275, 275)
+                                .addGap(142, 142, 142)
                                 .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(122, 122, 122)
                                 .addComponent(txtIdLibPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel16Layout.createSequentialGroup()
                                 .addGap(158, 158, 158)
@@ -1497,7 +1492,13 @@ public final class FrmPanel extends javax.swing.JFrame {
                                 .addComponent(jLabel28))
                             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel39))))
+                                .addComponent(jLabel39)))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdLibPrest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1510,12 +1511,6 @@ public final class FrmPanel extends javax.swing.JFrame {
                                 .addComponent(cbxSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel26)
                                 .addComponent(cbxLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdLibPrest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -2272,19 +2267,14 @@ public final class FrmPanel extends javax.swing.JFrame {
                 Combo lb = (Combo) cbxLibros.getSelectedItem();
                 prestamo.setLibro(lb.getId());
                 prestamo.setCantidad(Integer.parseInt(txtCantPrestamo.getText()));
-
                 int id;
                 id = lb.getId();
-
                 int cantidad;
                 cantidad = Integer.parseInt(txtCantPrestamo.getText());
-
                 int cantidadTotal;
                 cantidadTotal = lb.getCantidadTotal();
-
                 int actual;
                 actual = cantidadTotal - cantidad;
-
                 Date fecha = new Date();
                 prestamo.setFecha_prestamo(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
                 prestamo.setFecha_dev(new SimpleDateFormat("dd/MM/yyyy").format(txtFechaDev.getDate()));
@@ -2326,25 +2316,8 @@ public final class FrmPanel extends javax.swing.JFrame {
         int fila = tblPrestamo.rowAtPoint(evt.getPoint());
         txtIdPrestamo.setText(tblPrestamo.getValueAt(fila, 0).toString());
         txtCantPrestamo.setText(tblPrestamo.getValueAt(fila, 3).toString());
-        txtIdLibPrest.setText(tblPrestamo.getValueAt(fila, 7).toString());
         cbxLibros.setSelectedItem(tblPrestamo.getValueAt(fila, 2).toString());
         btnPrestar.setText("Devolver");
-        
-        
-        
-//        txtIdLibro.setText(tblLibros.getValueAt(fila, 0).toString());
-//        txtTitulo.setText(tblLibros.getValueAt(fila, 1).toString());
-//        txtCantLibro.setText(tblLibros.getValueAt(fila, 2).toString());
-//        txtIsbn.setText(tblLibros.getValueAt(fila, 3).toString());
-//        txtCodBarra.setText(tblLibros.getValueAt(fila, 4).toString());
-//        txtIdLEdi.setText(tblLibros.getValueAt(fila, 5).toString());
-//        cbxEditorial.setSelectedItem(tblLibros.getValueAt(fila, 6).toString());
-//        txtIdLAutor.setText(tblLibros.getValueAt(fila, 7).toString());
-//        cbxAutor.setSelectedItem(tblLibros.getValueAt(fila, 8).toString());
-//        txtIdLMat.setText(tblLibros.getValueAt(fila, 9).toString());
-//        cbxDocumento.setSelectedItem(tblLibros.getValueAt(fila, 10).toString());
-//        txtResumen.setText(tblLibros.getValueAt(fila, 11).toString());
-//        imgeditar(btnRegLibro);
     }//GEN-LAST:event_tblPrestamoMouseClicked
 
     private void txtBuscarUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarUserKeyReleased
@@ -2481,16 +2454,13 @@ public final class FrmPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelefonoKeyTyped
 
     private void txtIdLibPrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdLibPrestActionPerformed
-        // TODO add your handling code here:
+        initComponents();
+        txtIdLibPrest.setVisible(false);
     }//GEN-LAST:event_txtIdLibPrestActionPerformed
 
     private void cbxLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibrosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxLibrosActionPerformed
-
-    private void txtIdPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPrestamoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdPrestamoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

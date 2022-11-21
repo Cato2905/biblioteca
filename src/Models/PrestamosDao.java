@@ -55,10 +55,10 @@ public class PrestamosDao {
         try {
             con = cn.getConnection();
             if ("".equalsIgnoreCase(valor)) {                 
-                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, e.id AS id_soc, e.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios e ON e.id = p.id_socio ORDER BY p.id DESC";
+                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, s.id AS id_soc, s.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios s ON s.id = p.id_socio ORDER BY p.id DESC";
                 ps = con.prepareStatement(sql);
             } else {
-                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, e.id AS id_soc, e.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios e ON e.id = p.id_socio WHERE e.nombre LIKE '%" + valor + "%' OR l.titulo LIKE '%" + valor + "%' OR p.fecha_prestamo LIKE '%" + valor + "%'";
+                String sql = "SELECT p.*, l.id AS id_libro, l.titulo, s.id AS id_soc, s.nombre FROM prestamos p INNER JOIN libros l ON l.id = p.id_libro INNER JOIN socios s ON s.id = p.id_socio WHERE s.nombre LIKE '%" + valor + "%' OR l.titulo LIKE '%" + valor + "%' OR p.fecha_prestamo LIKE '%" + valor + "%'";
                 ps = con.prepareStatement(sql);
             }
             rs = ps.executeQuery();
