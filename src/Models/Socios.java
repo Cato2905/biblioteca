@@ -14,11 +14,12 @@ public class Socios {
     private String contrasena;
     private String nacimiento;
     private int estadoSoc;
+    private int limite;
 
     public Socios() {
     }
 
-    public Socios(int id, String rut, String email, String nombre, String apellidoPat, String apellidoMat, String telefono, String direccion, String comuna, String contrasena, String nacimiento, int estadoSoc) {
+    public Socios(int id, String rut, String email, String nombre, String apellidoPat, String apellidoMat, String telefono, String direccion, String comuna, String contrasena, String nacimiento, int estadoSoc, int limite) {
         this.id = id;
         this.rut = rut;
         this.email = email;
@@ -31,6 +32,7 @@ public class Socios {
         this.contrasena = contrasena;
         this.nacimiento = nacimiento;
         this.estadoSoc = estadoSoc;
+        this.limite = limite;
     }
 
     public int getId() {
@@ -127,6 +129,14 @@ public class Socios {
 
     public void setEstadoSoc(int estadoSoc) {
         this.estadoSoc = estadoSoc;
+    }
+
+    public int getLimite() {
+        return limite;
+    }
+
+    public void setLimite(int limite) {
+        this.limite = limite;
     }
 
 }

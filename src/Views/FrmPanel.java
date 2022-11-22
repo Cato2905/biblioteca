@@ -224,8 +224,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         cbxSocio = new javax.swing.JComboBox<>();
         cbxLibros = new javax.swing.JComboBox<>();
         txtFechaDev = new com.toedter.calendar.JDateChooser();
-        jLabel39 = new javax.swing.JLabel();
-        txtStock = new javax.swing.JTextField();
         txtIdPrestamo = new javax.swing.JTextField();
         txtIdLibPrest = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -1202,21 +1200,21 @@ public final class FrmPanel extends javax.swing.JFrame {
                             .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
+                        .addGap(60, 60, 60)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19))
-                                .addGap(18, 18, 18)
+                                    .addComponent(jLabel19)
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(56, 56, 56)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel20)
                                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))
-                                .addGap(18, 18, 18)
+                                    .addComponent(jLabel18)
+                                    .addComponent(txtSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(56, 56, 56)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -1226,13 +1224,14 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addComponent(btnNuevoSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel51)
-                            .addComponent(txtComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel51))
+                        .addGap(47, 47, 47)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1268,22 +1267,9 @@ public final class FrmPanel extends javax.swing.JFrame {
                         .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel37))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addComponent(jLabel51)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1292,7 +1278,25 @@ public final class FrmPanel extends javax.swing.JFrame {
                             .addComponent(btnEliSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnNuevoSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRecSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnRecSoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel37)))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel20)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1426,8 +1430,6 @@ public final class FrmPanel extends javax.swing.JFrame {
             }
         });
 
-        jLabel39.setText("Stock");
-
         txtIdLibPrest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdLibPrestActionPerformed(evt);
@@ -1475,11 +1477,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                                 .addGap(158, 158, 158)
                                 .addComponent(jLabel28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCantPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(68, 68, 68)
-                                .addComponent(jLabel39)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtCantPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel16Layout.setVerticalGroup(
@@ -1488,13 +1486,9 @@ public final class FrmPanel extends javax.swing.JFrame {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGap(103, 103, 103)
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtCantPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel28))
-                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel39)))
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCantPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel28))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1550,6 +1544,12 @@ public final class FrmPanel extends javax.swing.JFrame {
             tblPrestamo.getColumnModel().getColumn(6).setMinWidth(0);
             tblPrestamo.getColumnModel().getColumn(6).setPreferredWidth(0);
             tblPrestamo.getColumnModel().getColumn(6).setMaxWidth(0);
+            tblPrestamo.getColumnModel().getColumn(7).setMinWidth(0);
+            tblPrestamo.getColumnModel().getColumn(7).setPreferredWidth(0);
+            tblPrestamo.getColumnModel().getColumn(7).setMaxWidth(0);
+            tblPrestamo.getColumnModel().getColumn(8).setMinWidth(0);
+            tblPrestamo.getColumnModel().getColumn(8).setPreferredWidth(0);
+            tblPrestamo.getColumnModel().getColumn(8).setMaxWidth(0);
         }
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
@@ -2269,14 +2269,10 @@ public final class FrmPanel extends javax.swing.JFrame {
                 Combo lb = (Combo) cbxLibros.getSelectedItem();
                 prestamo.setLibro(lb.getId());
                 prestamo.setCantidad(Integer.parseInt(txtCantPrestamo.getText()));
-                int id;
-                id = lb.getId();
-                int cantidad;
-                cantidad = Integer.parseInt(txtCantPrestamo.getText());
-                int cantidadTotal;
-                cantidadTotal = lb.getCantidadTotal();
-                int actual;
-                actual = cantidadTotal - cantidad;
+                int id = lb.getId();
+                int cantidad = Integer.parseInt(txtCantPrestamo.getText());
+                int cantidadTotal = lb.getCantidadTotal();
+                int actual = cantidadTotal - cantidad;
                 Date fecha = new Date();
                 prestamo.setFecha_prestamo(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
                 prestamo.setFecha_dev(new SimpleDateFormat("dd/MM/yyyy").format(txtFechaDev.getDate()));
@@ -2301,14 +2297,10 @@ public final class FrmPanel extends javax.swing.JFrame {
                     Combo lb = (Combo) cbxLibros.getSelectedItem();
                     prestamo.setLibro(lb.getId());
                     prestamo.setCantidad(Integer.parseInt(txtCantPrestamo.getText()));
-                    int id;
-                    id = lb.getId();
-                    int cantidad;
-                    cantidad = Integer.parseInt(txtCantPrestamo.getText());
-                    int cantidadTotal;
-                    cantidadTotal = lb.getCantidadTotal();
-                    int actual;
-                    actual = cantidadTotal + cantidad;
+                    int id = lb.getId();
+                    int cantidad = Integer.parseInt(txtCantPrestamo.getText());
+                    int cantidadTotal = lb.getCantidadTotal();
+                    int actual = cantidadTotal + cantidad;
                     libroDao.actualizarStock(id, actual);
                     LimpiarTable();
                     ListarPrestamo();
@@ -2573,7 +2565,6 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -2666,7 +2657,6 @@ public final class FrmPanel extends javax.swing.JFrame {
     private javax.swing.JTextField txtRucEmpresa;
     private javax.swing.JTextField txtRut;
     private javax.swing.JTextField txtSocio;
-    private javax.swing.JTextField txtStock;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtTelefonoEmpresa;
     private javax.swing.JTextField txtTitulo;

@@ -1768,25 +1768,25 @@
                                       <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtEmail" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtTelefono" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtTelefono" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtDireccion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="txtDireccion" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtSocio" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="txtApellidoP" min="-2" pref="200" max="-2" attributes="0"/>
                                               <Component id="jLabel29" min="-2" pref="106" max="-2" attributes="0"/>
@@ -1802,14 +1802,16 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="80" max="32767" attributes="0"/>
+                                  <EmptySpace pref="50" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtApellidoM" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="jLabel50" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
-                                      <Component id="jLabel51" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtComuna" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="jLabel50" min="-2" pref="106" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="txtApellidoM" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="txtComuna" min="-2" pref="200" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="81" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1856,26 +1858,9 @@
                               </Group>
                               <Component id="txtNacimiento" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtEmail" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="txtTelefono" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="txtDireccion" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtContrasena" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                   <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txtComuna" min="-2" pref="35" max="-2" attributes="0"/>
@@ -1885,6 +1870,31 @@
                                       <Component id="btnNuevoSoc" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                       <Component id="btnRegSocio" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                       <Component id="btnRecSoc" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtEmail" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="txtTelefono" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="txtContrasena" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="txtDireccion" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2287,10 +2297,6 @@
                                           <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtCantPrestamo" min="-2" pref="50" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                                          <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtStock" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -2305,15 +2311,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="txtCantPrestamo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="txtStock" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtCantPrestamo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -2442,13 +2442,6 @@
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="txtFechaDev">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel39">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtStock">
-                </Component>
                 <Component class="javax.swing.JTextField" name="txtIdPrestamo">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtIdLibPrest">
@@ -2517,12 +2510,12 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
