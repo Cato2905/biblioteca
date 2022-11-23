@@ -95,6 +95,7 @@ public class SociosDao {
                 soc.setNacimiento(rs.getString("nacimiento"));
                 soc.setContrasena(rs.getString("contrasena"));
                 soc.setEstadoSoc(rs.getInt("estadoSoc"));
+                soc.setLimite(rs.getInt("limite"));
                 lista.add(soc);
             }
         } catch (SQLException e) {
@@ -102,7 +103,25 @@ public class SociosDao {
         }
         return lista;
     }
-
+    
+        public boolean actualizarLimite(int id, int limite) {
+        boolean res;
+        String sql = "UPDATE socios SET limite=? WHERE id = ?";
+        con = cn.getConnection();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, limite);
+            ps.setInt(2, id);
+            ps.execute();
+            res = true;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            res = false;
+        }
+        return res;
+    }
+        
+        
     public boolean eliminar(int id) {
 
         boolean res;

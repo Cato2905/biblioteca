@@ -4,6 +4,7 @@ package Models;
 public class Combo {
     private int id;
     private int cantidadTotal;
+    private int limite;
     private String nombre;
 
     public Combo(int id ,String nombre, int cantidadTotal) {
@@ -15,9 +16,10 @@ public class Combo {
     public Combo() {
     }
 
-//    public Combo(int id, String nombre) {
+//    public Combo(int id, String nombre, int limite) {
 //        this.id = id;
 //        this.nombre = nombre;
+//        this.limite = limite;
 //    }
     public int getId() {
         return id;
