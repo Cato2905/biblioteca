@@ -20,7 +20,7 @@ public class SociosDao {
     ResultSet rs;
 
     public boolean registrar(Socios est) {
-        String sql = "INSERT INTO socios (rut, email, nombre, apellido_pat, apellido_mat, telefono, direccion, comuna, nacimiento, contrasena) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO socios (rut, email, nombre, apellido_pat, apellido_mat, telefono, direccion, comuna, nacimiento, contrasena, limite) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         con = cn.getConnection();
         try {
             ps = con.prepareStatement(sql);
@@ -34,6 +34,7 @@ public class SociosDao {
             ps.setString(8, est.getComuna());
             ps.setString(9, est.getNacimiento());
             ps.setString(10, est.getContrasena());
+            ps.setInt(11, est.getLimite());
             ps.execute();
             return true;
         } catch (SQLException ex) {

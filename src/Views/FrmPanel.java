@@ -17,6 +17,7 @@ import Models.PrestamosDao;
 import Models.Usuarios;
 import Models.UsuariosDao;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.ItemEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -90,6 +91,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         ListarPrestamo();
         Calendar c2 = new GregorianCalendar();
         txtFechaDev.setCalendar(c2);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -264,6 +266,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         setTitle("Sistema de Biblioteca");
         setBackground(new java.awt.Color(255, 255, 255));
         setExtendedState(6);
+        setIconImage(getIconImage());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1977,20 +1980,17 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtTelefono.setText(tblSocios.getValueAt(fila, 6).toString());
         txtDireccion.setText(tblSocios.getValueAt(fila, 7).toString());
         txtComuna.setText(tblSocios.getValueAt(fila, 8).toString());
-//        try {
-//
-//            String pattern = "dd-MM-yyyy";
-//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-//            Date date = simpleDateFormat.parse((String) tblSocios.getValueAt(fila, 9));
-//            txtNacimiento.setDateFormatString(pattern);
-//            txtNacimiento.setDate(date);
-////            Date date = new SimpleDateFormat("dd/MM/yyyy").parse((String)tblSocios.getValueAt(fila, 9).toString());
-////            txtNacimiento.setDate(date);
-//        } catch (ParseException ex) {
-//            Logger.getLogger(FrmPanel.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
 
-        //txtNacimiento.setDate(tblSocios.getValueAt(fila, 9).toString().trim());
+            String pattern = "dd-MM-yyyy";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+            Date date = simpleDateFormat.parse((String) tblSocios.getValueAt(fila, 9));
+            txtNacimiento.setDateFormatString(pattern);
+            txtNacimiento.setDate(date);
+
+        } catch (ParseException ex) {
+            Logger.getLogger(FrmPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         txtContrasena.setText(tblSocios.getValueAt(fila, 10).toString());
         imgeditar(btnRegSocio);
 
@@ -2298,9 +2298,11 @@ public final class FrmPanel extends javax.swing.JFrame {
                 btnPrestar.setText("Prestar");
             }
         } else {
+
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Recibir Libro: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
             if (pregunta == 0) {
-                if (prestamoDao.actualizar(Integer.parseInt(txtIdPrestamo.getText()))) {
+                if (prestamoDao.actualizar(Integer.parseInt(txtIdPrestamo.getText()), Integer.parseInt(txtCantPrestamo.getText())   )) {
                     Combo soc = (Combo) cbxSocio.getSelectedItem();
                     prestamo.setSocio(soc.getId());
                     Combo lb = (Combo) cbxLibros.getSelectedItem();
@@ -2320,6 +2322,8 @@ public final class FrmPanel extends javax.swing.JFrame {
                     ListarPrestamo();
                     limpiarPrestamo();
                     JOptionPane.showMessageDialog(null, "Prestamo Devuelto");
+                    txtCantPrestamo.setEditable(true);
+                    txtCantPrestamo.setEnabled(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
@@ -2334,6 +2338,8 @@ public final class FrmPanel extends javax.swing.JFrame {
         ListarPrestamo();
         limpiarPrestamo();
         btnPrestar.setText("Prestar");
+        txtCantPrestamo.setEditable(true);
+        txtCantPrestamo.setEnabled(true);
 
     }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
 
@@ -2343,6 +2349,8 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtCantPrestamo.setText(tblPrestamo.getValueAt(fila, 3).toString());
         cbxLibros.setSelectedItem(tblPrestamo.getValueAt(fila, 2).toString());
         cbxSocio.setSelectedItem(tblPrestamo.getValueAt(fila, 1).toString());
+        txtCantPrestamo.setEditable(false);
+        txtCantPrestamo.setEnabled(false);
         btnPrestar.setText("Devolver");
     }//GEN-LAST:event_tblPrestamoMouseClicked
 
@@ -2806,6 +2814,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         String direccion = txtDireccion.getText();
         String comuna = txtComuna.getText();
         String contrasena = txtContrasena.getText();
+        String nacimiento = new SimpleDateFormat("dd-MM-yyyy").format(txtNacimiento.getDate());
 
         //Verificacion de campos vacios
         if (rut.equals("") || email.equals("") || nombre.equals("") || direccion.equals("")) {
@@ -2817,14 +2826,6 @@ public final class FrmPanel extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, " Rut mal ingresado");
                 return;
-
-            }
-
-            if (sociosDao.verificarExistente(SociosDao.formatear(rut)) == false) {
-                JOptionPane.showMessageDialog(null, " Rut repetido");
-                return;
-            } else {
-//                JOptionPane.showMessageDialog(null, " rut bien ");
 
             }
 
@@ -2843,18 +2844,21 @@ public final class FrmPanel extends javax.swing.JFrame {
             socios.setTelefono(telefono);
             socios.setDireccion(direccion);
             socios.setComuna(comuna);
-            socios.setNacimiento(new SimpleDateFormat("dd/MM/yyyy").format(txtNacimiento.getDate()));
+            socios.setNacimiento(nacimiento);
             socios.setContrasena(contrasena);
-
+            socios.setLimite(0);
             if (id.equals("")) {
-                if (rootPaneCheckingEnabled) {
+
+                if (sociosDao.verificarExistente(SociosDao.formatear(rut)) == false) {
+                    JOptionPane.showMessageDialog(null, " Rut repetido");
+                    return;
+                } else {
                     if (sociosDao.registrar(socios)) {
                         JOptionPane.showMessageDialog(null, "Socio Registrado");
                         limpiarSocios();
                     } else {
                         JOptionPane.showMessageDialog(null, "Error al Registrar");
                     }
-                } else {
                 }
 
             } else {
@@ -3150,6 +3154,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtApellidoM.setText("");
         txtApellidoP.setText("");
         txtComuna.setText("");
+        txtNacimiento.setDateFormatString("");
 
     }
 
@@ -3167,6 +3172,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtCantPrestamo.setText("");
         cbxSocio.removeAllItems();
         cbxLibros.removeAllItems();
+
         llenarSocio();
         llenarLibros();
         AutoCompleteDecorator.decorate(cbxSocio);

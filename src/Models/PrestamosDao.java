@@ -75,6 +75,7 @@ public class PrestamosDao {
                 pre.setLibro(rs.getInt("id_libro"));
                 pre.setSocio(rs.getInt("id_socio"));
                 int ver = pre.getEstado();
+                int stock = pre.getCantidad();
                 if (ver == 1) {
                     lista.add(pre);
                 }
