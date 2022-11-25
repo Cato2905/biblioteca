@@ -2462,15 +2462,15 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="9" rowCount="0">
-                        <Column editable="true" title="Id" type="java.lang.Object"/>
-                        <Column editable="true" title="Socio" type="java.lang.Object"/>
-                        <Column editable="true" title="Documento" type="java.lang.Object"/>
-                        <Column editable="true" title="Cantidad" type="java.lang.Object"/>
-                        <Column editable="true" title="F. Prestamo" type="java.lang.Object"/>
-                        <Column editable="true" title="F. Devoluci&#xf3;n" type="java.lang.Object"/>
+                        <Column editable="false" title="Id" type="java.lang.Object"/>
+                        <Column editable="false" title="Socio" type="java.lang.Object"/>
+                        <Column editable="false" title="Documento" type="java.lang.Object"/>
+                        <Column editable="false" title="Cantidad" type="java.lang.Object"/>
+                        <Column editable="false" title="F. Prestamo" type="java.lang.Object"/>
+                        <Column editable="false" title="F. Devoluci&#xf3;n" type="java.lang.Object"/>
                         <Column editable="false" title="Estado" type="java.lang.Boolean"/>
-                        <Column editable="true" title="IdLibPres" type="java.lang.Object"/>
-                        <Column editable="true" title="idSocPres" type="java.lang.Object"/>
+                        <Column editable="false" title="IdLibPres" type="java.lang.Object"/>
+                        <Column editable="false" title="idSocPres" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

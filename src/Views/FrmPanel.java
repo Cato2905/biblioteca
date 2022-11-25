@@ -1521,7 +1521,7 @@ public final class FrmPanel extends javax.swing.JFrame {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, true, true, true, true, true, false, true, true
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1994,9 +1994,6 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtContrasena.setText(tblSocios.getValueAt(fila, 10).toString());
         imgeditar(btnRegSocio);
 
-        if (rootPaneCheckingEnabled) {
-
-        }
     }//GEN-LAST:event_tblSociosMouseClicked
 
     private void tblDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocumentoMouseClicked
@@ -2254,6 +2251,7 @@ public final class FrmPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarEmpresaActionPerformed
 
     private void btnPrestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestarActionPerformed
+
         if (txtIdPrestamo.getText().equals("")) {
             if (cbxSocio.getSelectedItem().toString().equals("") || cbxLibros.getSelectedItem().toString().equals("")
                     || txtCantPrestamo.getText().equals("") || txtFechaDev.getDate().toString().equals("")) {
@@ -2273,8 +2271,8 @@ public final class FrmPanel extends javax.swing.JFrame {
                 int cantidadTotal = lb.getCantidadTotal();
                 int actual = cantidadTotal - cantidad;
                 Date fecha = new Date();
-                prestamo.setFecha_prestamo(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
-                prestamo.setFecha_dev(new SimpleDateFormat("dd/MM/yyyy").format(txtFechaDev.getDate()));
+                prestamo.setFecha_prestamo(new SimpleDateFormat("dd-MM-yyyy").format(fecha));
+                prestamo.setFecha_dev(new SimpleDateFormat("dd-MM-yyyy").format(txtFechaDev.getDate()));
                 if (totalLimite <= 3) {
                     if (cantidadTotal > 0 && cantidadTotal >= cantidad) {
                         if (prestamoDao.registrar(prestamo)) {
@@ -2302,7 +2300,7 @@ public final class FrmPanel extends javax.swing.JFrame {
             int pregunta = JOptionPane.showConfirmDialog(null, "¿ Recibir Libro: ", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
             if (pregunta == 0) {
-                if (prestamoDao.actualizar(Integer.parseInt(txtIdPrestamo.getText()), Integer.parseInt(txtCantPrestamo.getText())   )) {
+                if (prestamoDao.actualizar(Integer.parseInt(txtIdPrestamo.getText()))) {
                     Combo soc = (Combo) cbxSocio.getSelectedItem();
                     prestamo.setSocio(soc.getId());
                     Combo lb = (Combo) cbxLibros.getSelectedItem();
@@ -2322,8 +2320,8 @@ public final class FrmPanel extends javax.swing.JFrame {
                     ListarPrestamo();
                     limpiarPrestamo();
                     JOptionPane.showMessageDialog(null, "Prestamo Devuelto");
-                    txtCantPrestamo.setEditable(true);
-                    txtCantPrestamo.setEnabled(true);
+//                    txtCantPrestamo.setEditable(true);
+//                    txtCantPrestamo.setEnabled(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
@@ -2337,9 +2335,13 @@ public final class FrmPanel extends javax.swing.JFrame {
         LimpiarTable();
         ListarPrestamo();
         limpiarPrestamo();
+        llenarSocio();
+        llenarLibros();
+        AutoCompleteDecorator.decorate(cbxSocio);
+        AutoCompleteDecorator.decorate(cbxLibros);
         btnPrestar.setText("Prestar");
-        txtCantPrestamo.setEditable(true);
-        txtCantPrestamo.setEnabled(true);
+//        txtCantPrestamo.setEditable(true);
+//        txtCantPrestamo.setEnabled(true);
 
     }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
 
@@ -2349,8 +2351,19 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtCantPrestamo.setText(tblPrestamo.getValueAt(fila, 3).toString());
         cbxLibros.setSelectedItem(tblPrestamo.getValueAt(fila, 2).toString());
         cbxSocio.setSelectedItem(tblPrestamo.getValueAt(fila, 1).toString());
-        txtCantPrestamo.setEditable(false);
-        txtCantPrestamo.setEnabled(false);
+        try {
+
+            String pattern = "dd-MM-yyyy";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+            Date date = simpleDateFormat.parse((String) tblPrestamo.getValueAt(fila, 5));
+            txtFechaDev.setDateFormatString(pattern);
+            txtFechaDev.setDate(date);
+
+        } catch (ParseException ex) {
+            Logger.getLogger(FrmPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//        txtCantPrestamo.setEditable(false);
+//        txtCantPrestamo.setEnabled(false);
         btnPrestar.setText("Devolver");
     }//GEN-LAST:event_tblPrestamoMouseClicked
 
@@ -3172,7 +3185,7 @@ public final class FrmPanel extends javax.swing.JFrame {
         txtCantPrestamo.setText("");
         cbxSocio.removeAllItems();
         cbxLibros.removeAllItems();
-
+        txtFechaDev.setDateFormatString("");
         llenarSocio();
         llenarLibros();
         AutoCompleteDecorator.decorate(cbxSocio);
